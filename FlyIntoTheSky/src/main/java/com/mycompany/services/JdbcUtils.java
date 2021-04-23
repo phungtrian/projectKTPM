@@ -26,6 +26,6 @@ public class JdbcUtils {
     }
     
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost/flightdb", "root", "123456789");
+        return DriverManager.getConnection("jdbc:mysql://localhost/flightdb", "root", "123456");
     }
 }
