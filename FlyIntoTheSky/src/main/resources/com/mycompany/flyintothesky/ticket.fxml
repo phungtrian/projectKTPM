@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flight.TicketController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.TicketController">
    <children>
       <HBox prefHeight="83.0" prefWidth="600.0" />
       <HBox prefHeight="237.0" prefWidth="600.0">
          <children>
-            <Button fx:id="book" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="222.0" prefWidth="238.0" style="-fx-background-color: lightblue;" text="Book a Flight" textFill="#2d3b99">
+            <Button fx:id="book" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToSearchFlight_BranchNew" prefHeight="222.0" prefWidth="238.0" style="-fx-background-color: lightblue;" text="Book a Flight" textFill="#2d3b99">
                <HBox.margin>
                   <Insets left="35.0" right="15.0" />
                </HBox.margin>
@@ -28,7 +28,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="222.0" prefWidth="241.0" style="-fx-background-color: lightblue;" text="My Booking" textFill="#2d3b99">
+            <Button fx:id="myBooking" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="222.0" prefWidth="241.0" style="-fx-background-color: lightblue;" text="My Booking" textFill="#2d3b99">
                <HBox.margin>
                   <Insets left="35.0" right="35.0" />
                </HBox.margin>

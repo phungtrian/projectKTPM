@@ -15,13 +15,13 @@ public class TicketController{
     private Button goBack;
     
     @FXML
-    private void switchToSearch() throws IOException{
-        App.setRoot("search");
+    private void switchToSearchFlight_BranchNew() throws IOException{
+        App.setRoot("searchFlight_BranchNew");
     }
     
     @FXML
-    private void switchToMyBooking() throws IOException{
-        App.setRoot("myBooking");
+    private void switchToBooking() throws IOException{
+        App.setRoot("booking");
     }
     
     @FXML
