@@ -4,6 +4,7 @@ package com.mycompany.flyintothesky;
 import com.mycompany.pojo.Flight;
 import com.mycompany.user.SearchFlight;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.fxml.FXML;
@@ -31,6 +32,7 @@ public class SearchController{
     @FXML
     private TableView<Flight> tbFlights;
     
+    private static Connection conn;
     
     @FXML
     private void switchToTicket() throws IOException{
@@ -49,7 +51,8 @@ public class SearchController{
     @FXML
     private void showInfo() throws SQLException
     {
-        SearchFlight f = new SearchFlight();
+        
+        SearchFlight f = new SearchFlight(conn);
         List<Flight> flights = f.FindFlight(search());
         if (f.checkFind(search()))
             flag = true;

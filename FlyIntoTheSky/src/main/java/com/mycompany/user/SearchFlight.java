@@ -44,4 +44,10 @@ public class SearchFlight {
        }
         return flights;
     }
+    public boolean checkFind(String kw) throws SQLException
+     {
+         List<Flight> buses = FindFlight(kw);
+         if (buses.isEmpty()) return false;
+         return true;
+     }
 }
