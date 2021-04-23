@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox cache="true" cacheHint="QUALITY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.HomeController">
+   <children>
+      <Text fill="#2d3b99" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Home" wrappingWidth="598.9613342285156">
+         <font>
+            <Font name="System Bold" size="74.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="22.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="242.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btTicket" contentDisplay="TOP" defaultButton="false" graphicTextGap="18.0" mnemonicParsing="false" onAction="#switchToTicket" pickOnBounds="false" prefHeight="242.0" prefWidth="278.0" style="-fx-background-color: lightblue;" text="Buy Ticket" textAlignment="JUSTIFY" textFill="#2d3b99">
+               <graphic>
+                  <ImageView fitHeight="134.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="false">
+                     <image>
+                        <Image url="@../../../images/ticket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btLogin" contentDisplay="TOP" graphicTextGap="18.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="242.0" prefWidth="278.0" style="-fx-background-color: lightblue;" text="Admin" textFill="#2d3b99">
+               <graphic>
+                  <ImageView fitHeight="133.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/login.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
