@@ -1,0 +1,23 @@
+/*
+ * Empty Stylesheet file.
+ */
+*{
+    -fx-font-family: Calibri;
+    -fx-text-fillcolor: #2d3b99;
+}
+GridPane, VBox{
+    -fx-background-color: lightblue;
+    -fx-text-alignment:center;
+}
+
+.radio-button:selected .radio .dot {
+    -fx-background-color: #2d3b99;
+    -fx-background-insets: 0;
+}
+
+.label{
+    font-size: 74px;
+    font-style: oblique;
+    color: #2d3b99;
+    text-align: center;
+}

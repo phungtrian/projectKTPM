@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="90.0" prefWidth="617.0" text="My booking" textFill="#2d3b99">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <TableView prefHeight="306.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
+        <columns>
+          <TableColumn prefWidth="119.20001220703125" text="Origin" />
+          <TableColumn prefWidth="126.4000244140625" text="Destination" />
+            <TableColumn minWidth="0.0" prefWidth="72.79998779296875" text="Seat" />
+            <TableColumn prefWidth="103.199951171875" text="Class" />
+            <TableColumn prefWidth="97.5999755859375" text="Price" />
+            <TableColumn prefWidth="72.800048828125" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

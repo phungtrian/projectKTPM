@@ -1,10 +1,12 @@
-com\mycompany\flyintothesky\SecondaryController.class
+com\mycompany\flyintothesky\BookingController.class
+com\mycompany\flyintothesky\AddInfoController.class
 com\mycompany\flyintothesky\SearchController.class
 com\mycompany\pojo\Customer.class
 com\mycompany\pojo\Flight.class
 com\mycompany\pojo\Agent.class
 com\mycompany\flyintothesky\HomeController.class
 module-info.class
+com\mycompany\flyintothesky\ConfirmController.class
 com\mycompany\flyintothesky\TicketController.class
 com\mycompany\pojo\Seat.class
 com\mycompany\flight\FlightsController.class
@@ -16,6 +18,5 @@ com\mycompany\flyintothesky\Utils.class
 com\mycompany\pojo\Ticket.class
 com\mycompany\flyintothesky\LoginController.class
 com\mycompany\user\SearchFlight.class
-com\mycompany\flyintothesky\PrimaryController.class
 com\mycompany\user\CancelTicket.class
 com\mycompany\flyintothesky\SearchFlightController.class
