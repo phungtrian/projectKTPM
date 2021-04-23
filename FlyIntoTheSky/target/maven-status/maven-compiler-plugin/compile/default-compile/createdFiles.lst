@@ -1,4 +1,3 @@
-com\mycompany\flyintothesky\SecondaryController.class
 com\mycompany\flyintothesky\SearchController.class
 com\mycompany\pojo\Customer.class
 com\mycompany\pojo\Flight.class
@@ -16,6 +15,5 @@ com\mycompany\flyintothesky\Utils.class
 com\mycompany\pojo\Ticket.class
 com\mycompany\flyintothesky\LoginController.class
 com\mycompany\user\SearchFlight.class
-com\mycompany\flyintothesky\PrimaryController.class
 com\mycompany\user\CancelTicket.class
 com\mycompany\flyintothesky\SearchFlightController.class
