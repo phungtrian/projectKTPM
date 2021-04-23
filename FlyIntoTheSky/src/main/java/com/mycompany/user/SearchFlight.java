@@ -19,11 +19,16 @@ import java.util.List;
  * @author phung
  */
 public class SearchFlight {
+    private Connection conn;
+
+    public SearchFlight(Connection conn) {
+        this.conn = conn;
+    }
     public List<Flight> FindFlight(String kw) throws SQLException
     {
-        Connection conn = JdbcUtils.getConn();
+//        Connection conn = JdbcUtils.getConn();
         String sql = "Select * FROM FLIGHT WHERE ID = ?";
-        PreparedStatement stm = conn.prepareStatement(sql);
+        PreparedStatement stm = this.conn.prepareStatement(sql);
         stm.setString(1, kw);
         ResultSet rs = stm.executeQuery();
         List<Flight> flights = new ArrayList<>();

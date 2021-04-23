@@ -5,19 +5,26 @@
  */
 package TestAll;
 
+import com.mycompany.pojo.Flight;
 import com.mycompany.services.JdbcUtils;
+import com.mycompany.user.SearchFlight;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.Duration;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author kenng
  */
 public class TestSearch {
+    
     private static Connection conn;
     
     @BeforeAll
@@ -37,5 +44,26 @@ public class TestSearch {
             } catch (SQLException ex) {
                 Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    
+    @Test
+    public void testWithKeyWord() {
+        try {
+           //SearchFlight s = new SearchFlight();
+           SearchFlight s = new SearchFlight(conn);
+            List<Flight> ds = s.FindFlight("HN");
+            
+            ds.forEach(p -> {
+                Assertions.assertTrue(p.getOrigin().toLowerCase().contains("HN"));
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     @Test
+    public void testTimeout() {
+        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
+            new SearchFlight(conn).FindFlight("HN");
+        });
     }
 }
