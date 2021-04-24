@@ -10,7 +10,13 @@ package com.mycompany.pojo;
  * @author phung
  */
 public class Airport {
-
+    private int id;
+    private String location;
+    
+    @Override
+    public String toString() {
+        return this.location;
+    }
     /**
      * @return the id
      */
@@ -38,6 +44,4 @@ public class Airport {
     public void setLocation(String location) {
         this.location = location;
     }
-    private int id;
-    private String location;
 }

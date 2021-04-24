@@ -41,7 +41,7 @@ public class AirportService {
         return airports;
     }
     
-    public Airport getCategoryById(int flightId) throws SQLException {
+    public Airport getAirportById(int flightId) throws SQLException {
         String q = "SELECT * FROM airport WHERE id=?";
         PreparedStatement stm = this.conn.prepareStatement(q);
         stm.setInt(1, flightId);
