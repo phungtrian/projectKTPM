@@ -32,7 +32,7 @@ public class LoginController{
         }
         else
         {
-            Utils.getBox("LOGIN FAILED!!!", Alert.AlertType.INFORMATION).show();
+            Utils.getBox("LOGIN FAILED!!!", Alert.AlertType.ERROR).show();
        }
         }
     @FXML
