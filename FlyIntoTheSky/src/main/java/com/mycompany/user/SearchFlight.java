@@ -44,6 +44,30 @@ public class SearchFlight {
        }
         return flights;
     }
+    
+    public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
+    {
+//        Connection conn = JdbcUtils.getConn();
+        String sql = "Select * FROM FLIGHT WHERE origin = ? AND destination = ? AND day = ?";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, ori);
+        stm.setString(2, des);
+        stm.setString(3, d);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           int id = rs.getInt("id");
+           String origin = rs.getString("origin");
+           String destination = rs.getString("destination");
+           String boardingTime = rs.getString("boardingTime");
+           String day = rs.getString("day");
+           Flight flight = new Flight(id, origin, destination, boardingTime, day);
+           flights.add(flight);
+       }
+        return flights;
+    }
+    
     public boolean checkFind(String kw) throws SQLException
      {
          List<Flight> flights = FindFlight(kw);
