@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: new_schema
+-- Host: 127.0.0.1    Database: flightdb
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -39,6 +39,29 @@ LOCK TABLES `agent` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `airport`
+--
+
+DROP TABLE IF EXISTS `airport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `airport` (
+  `id` int NOT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `airport`
+--
+
+LOCK TABLES `airport` WRITE;
+/*!40000 ALTER TABLE `airport` DISABLE KEYS */;
+/*!40000 ALTER TABLE `airport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `customer`
 --
 
@@ -73,11 +96,15 @@ CREATE TABLE `flight` (
   `id` int NOT NULL,
   `day` varchar(45) DEFAULT NULL,
   `boardingtime` varchar(45) DEFAULT NULL,
-  `origin` varchar(45) DEFAULT NULL,
-  `destination` varchar(45) DEFAULT NULL,
+  `destination` int DEFAULT NULL,
+  `origin` int DEFAULT NULL,
   `plane_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_flight_plane_idx` (`plane_id`),
+  KEY `fk_flight_plane_idx` (`plane_id`) /*!80000 INVISIBLE */,
+  KEY `fk_flight_airport_idx` (`origin`),
+  KEY `fk_flight_airport1_idx` (`destination`),
+  CONSTRAINT `fk_flight_airport` FOREIGN KEY (`origin`) REFERENCES `airport` (`id`),
+  CONSTRAINT `fk_flight_airport1` FOREIGN KEY (`destination`) REFERENCES `airport` (`id`),
   CONSTRAINT `fk_flight_plane` FOREIGN KEY (`plane_id`) REFERENCES `plane` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -186,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-09 16:15:01
+-- Dump completed on 2021-04-24 20:24:38
