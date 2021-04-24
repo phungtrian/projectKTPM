@@ -19,7 +19,7 @@ public class BuyTicket {
     public static void BuyTicket(Ticket t,int idSeat) throws SQLException { 
        Connection conn = JdbcUtils.getConn();
        String sql = "INSERT INTO Ticket(flight, price, time, date, customer) "
-                    + "VALUES(?, ?, ?, ?, ?, ?)";
+                    + "VALUES(?, ?, ?, ?, ?)";
        PreparedStatement stm = conn.prepareStatement(sql);
        stm.setInt (1,t.getCb().getId());
        stm.setBigDecimal(2, t.getPrice());

@@ -19,3 +19,4 @@ com\mycompany\pojo\Ticket.class
 com\mycompany\flyintothesky\LoginController.class
 com\mycompany\user\SearchFlight.class
 com\mycompany\user\CancelTicket.class
+com\mycompany\flyintothesky\ManageController.class
