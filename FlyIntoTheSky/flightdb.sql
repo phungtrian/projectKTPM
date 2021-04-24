@@ -94,8 +94,8 @@ DROP TABLE IF EXISTS `flight`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `flight` (
   `id` int NOT NULL,
-  `day` varchar(45) DEFAULT NULL,
-  `boardingtime` varchar(45) DEFAULT NULL,
+  `day` date DEFAULT NULL,
+  `boardingtime` time DEFAULT NULL,
   `destination` int DEFAULT NULL,
   `origin` int DEFAULT NULL,
   `plane_id` int DEFAULT NULL,
@@ -177,8 +177,8 @@ DROP TABLE IF EXISTS `ticket`;
 CREATE TABLE `ticket` (
   `id` int NOT NULL,
   `price` decimal(10,0) DEFAULT NULL,
-  `date` varchar(45) DEFAULT NULL,
-  `time` varchar(45) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
   `seat_id` int DEFAULT NULL,
   `customer_id` int DEFAULT NULL,
   `agent_id` int DEFAULT NULL,
@@ -213,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-24 20:24:38
+-- Dump completed on 2021-04-24 21:23:35
