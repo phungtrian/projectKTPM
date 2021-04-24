@@ -16,9 +16,9 @@ public class Flight {
     private String origin;
     private String destination;
     private String boardingTime;
-    private String day;
+    private Date day;
     
-    public Flight(int id, String origin, String destination, String boardingTime, String day) {
+    public Flight(int id, String origin, String destination, String boardingTime, Date day) {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
@@ -86,14 +86,14 @@ public class Flight {
     /**
      * @return the date
      */
-    public String getDate() {
+    public Date getDate() {
         return day;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.day = date;
     }
     

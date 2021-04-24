@@ -6,12 +6,12 @@
 package com.mycompany.user;
 
 import com.mycompany.pojo.Flight;
-import com.mycompany.services.JdbcUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,21 +38,21 @@ public class SearchFlight {
            String origin = rs.getString("origin");
            String destination = rs.getString("destination");
            String boardingTime = rs.getString("boardingTime");
-           String day = rs.getString("day");
+           Date day = rs.getDate("day");
            Flight flight = new Flight(id, origin, destination, boardingTime, day);
            flights.add(flight);
        }
         return flights;
     }
     
-    public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
+    public List<Flight> FindFlightLocation(String ori, String des, Date d) throws SQLException
     {
 //        Connection conn = JdbcUtils.getConn();
         String sql = "Select * FROM FLIGHT WHERE origin = ? AND destination = ? AND day = ?";
         PreparedStatement stm = this.conn.prepareStatement(sql);
         stm.setString(1, ori);
         stm.setString(2, des);
-        stm.setString(3, d);
+        stm.setDate(3, (java.sql.Date) d);
         ResultSet rs = stm.executeQuery();
         List<Flight> flights = new ArrayList<>();
         while (rs.next()) 
@@ -61,7 +61,7 @@ public class SearchFlight {
            String origin = rs.getString("origin");
            String destination = rs.getString("destination");
            String boardingTime = rs.getString("boardingTime");
-           String day = rs.getString("day");
+           Date day = rs.getDate("day");
            Flight flight = new Flight(id, origin, destination, boardingTime, day);
            flights.add(flight);
        }
