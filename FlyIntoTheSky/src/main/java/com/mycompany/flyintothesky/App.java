@@ -1,6 +1,5 @@
 package com.mycompany.flyintothesky;
 
-import com.mycompany.pojo.Flight;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

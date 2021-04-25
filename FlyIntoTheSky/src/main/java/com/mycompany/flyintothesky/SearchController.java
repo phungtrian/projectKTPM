@@ -1,4 +1,3 @@
-
 package com.mycompany.flyintothesky;
 
 import com.mycompany.pojo.Airport;
@@ -10,16 +9,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
@@ -37,6 +34,9 @@ public class SearchController implements Initializable{
     private ComboBox<Airport> cbNoidi;
     
     @FXML private DatePicker date;
+    
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    String strDate = formatter.format(date);
     
     @FXML
     private ComboBox<Airport> cbNoiden;
@@ -64,7 +64,7 @@ public class SearchController implements Initializable{
             Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
         }
         loadTable();
-
+        loadData(" ", " ", " ");
         
         this.tbFlights.setRowFactory(obj -> {
             TableRow row = new TableRow();
@@ -72,15 +72,13 @@ public class SearchController implements Initializable{
             row.setOnMouseClicked(evt -> {
                 try {
                     Flight p = this.tbFlights.getSelectionModel().getSelectedItem();
-                    txtName.setText(p.getName());
-                    txtPrice.setText(p.getPrice().toString());
-                    
                     
                     Connection conn = JdbcUtils.getConn();
                     AirportService s = new AirportService(conn);
                     Airport c = s.getAirportById(p.getId());
                     
                     this.cbNoidi.getSelectionModel().select(c);
+                    this.cbNoiden.getSelectionModel().select(c);
                     
                     conn.close();
                 } catch (SQLException ex) {
@@ -91,7 +89,7 @@ public class SearchController implements Initializable{
             return row;
         });
     }
-    private void loadData(String ori, String des, Date d) {
+    private void loadData(String ori, String des, String d) {
         try {
             Connection conn = JdbcUtils.getConn();
             SearchFlight s = new SearchFlight(conn);
@@ -121,37 +119,21 @@ public class SearchController implements Initializable{
         colAction.setCellFactory(obj -> {
             Button btn = new Button("Chọn");
 
-            btn.setOnAction((evt) -> {
-                Utils.getBox("Ban chac chan xoa khong?", Alert.AlertType.CONFIRMATION)
-                        .showAndWait().ifPresent(bt -> {
-                            if (bt == ButtonType.OK) {
-                                try {
-                                    TableCell cell = (TableCell) ((Button) evt.getSource()).getParent();
-                                    Product p = (Product) cell.getTableRow().getItem();
-
-                                    Connection conn = JdbcUitls.getConn();
-                                    ProductService s = new ProductService(conn);
-                                    if (s.deleteProduct(p.getId()) == true) {
-                                        Utils.getBox("SUCCESSFUL", Alert.AlertType.INFORMATION).show();
-                                        loadData("");
-                                    } else {
-                                        Utils.getBox("FAILED", Alert.AlertType.ERROR).show();
-                                    }
-                                } catch (SQLException ex) {
-                                    Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                        });
-
-            });
+//            btn.setOnAction((evt) -> {
+//                @FXML
+//                private void switchToAddInfo() throws IOException{
+//                    App.setRoot("addInfo");
+//                }
+//            });
 
             TableCell cell = new TableCell();
             cell.setGraphic(btn);
             return cell;
         });
 
-        this.tbProducts.getColumns().addAll(colId, colName, colDes, colPrice, colAction);
+        this.tbFlights.getColumns().addAll(colFrom, colTo, colDay, colTime, colAction);
     }
+
 }
 //    static String a;
 //    public String search(){
