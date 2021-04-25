@@ -5,6 +5,7 @@
  */
 package com.mycompany.pojo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,9 +17,9 @@ public class Flight {
     private String origin;
     private String destination;
     private String boardingTime;
-    private Date day;
+    private String day;
     
-    public Flight(int id, String origin, String destination, String boardingTime, Date day) {
+    public Flight(int id, String origin, String destination, String boardingTime, String day) {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
@@ -86,14 +87,14 @@ public class Flight {
     /**
      * @return the date
      */
-    public Date getDate() {
+    public String getDate() {
         return day;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.day = date;
     }
     

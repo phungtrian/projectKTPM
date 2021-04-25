@@ -28,13 +28,12 @@ public class LoginController{
         if(user.getText().trim().equals("root")&& pass.getText().equals("1234"))
         {
             App.setRoot("manage");
-
         }
         else
         {
             Utils.getBox("LOGIN FAILED!!!", Alert.AlertType.ERROR).show();
-       }
         }
+    }
     @FXML
     private void switchToHome() throws IOException{
         App.setRoot("home");

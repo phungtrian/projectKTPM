@@ -1,0 +1,4 @@
+--patch-module
+com.mycompany.flyintothesky=_
+--add-reads
+com.mycompany.flyintothesky=ALL-UNNAMED
