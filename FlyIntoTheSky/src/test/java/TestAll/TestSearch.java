@@ -47,11 +47,11 @@ public class TestSearch {
     }
     
     @Test
-    public void testWithKeyWord() {
+    public void testWithKeyWordFindFlightID() {
         try {
            //SearchFlight s = new SearchFlight();
            SearchFlight s = new SearchFlight(conn);
-            List<Flight> ds = s.FindFlight("1");
+            List<Flight> ds = s.FindFlightID("1");
             
             ds.forEach(p -> {
                 Assertions.assertEquals(p.getId(), 1);
@@ -60,10 +60,55 @@ public class TestSearch {
             Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @Test
+    public void testWithKeyWordFindFlightOrigin() {
+        try {
+           //SearchFlight s = new SearchFlight();
+           SearchFlight s = new SearchFlight(conn);
+            List<Flight> ds = s.FindFlightOrigin("HN");
+            
+            ds.forEach(p -> {
+                Assertions.assertTrue(p.getOrigin().contains("HN"));
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void testWithKeyWordFindFlightDestination() {
+        try {
+           //SearchFlight s = new SearchFlight();
+           SearchFlight s = new SearchFlight(conn);
+            List<Flight> ds = s.FindFlightDestination("SG");
+            
+            ds.forEach(p -> {
+                Assertions.assertTrue(p.getDestination().contains("SG"));
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void testWithKeyWordFindFlightDay() {
+        try {
+           //SearchFlight s = new SearchFlight();
+           SearchFlight s = new SearchFlight(conn);
+            List<Flight> ds = s.FindFlightDay("10/21/2021");
+            
+            ds.forEach(p -> {
+                Assertions.assertTrue(p.getDate().toLowerCase().contains("10/12/2021"));
+            });
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
      @Test
     public void testTimeout() {
         Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
-            new SearchFlight(conn).FindFlight("HN");
+            new SearchFlight(conn).FindFlightID("HN");
         });
     }
 }
