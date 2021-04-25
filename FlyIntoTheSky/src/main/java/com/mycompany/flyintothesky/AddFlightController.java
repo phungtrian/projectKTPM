@@ -10,25 +10,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 
+public class AddFlightController {
 
-public class ManageController {
-
-  @FXML
-   private Button add;
-  @FXML
-   private Button fix;
-  @FXML
-   private Button delete;
-  @FXML
-   private Button back;
-    
    @FXML
-    private void switchToHome() throws IOException{
-        App.setRoot("home");
-    }
-    
-    @FXML
-    private void switchToAddFlight() throws IOException{
-        App.setRoot("addFlight");
+   private Button back;
+   @FXML
+   private Button add;
+   
+   @FXML
+    private void switchToManage() throws IOException{
+        App.setRoot("manage");
     }
 }

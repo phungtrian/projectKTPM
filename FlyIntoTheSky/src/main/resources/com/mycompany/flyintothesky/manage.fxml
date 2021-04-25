@@ -16,7 +16,7 @@
          </font></Label>
       <HBox prefHeight="242.0" prefWidth="600.0">
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
+            <Button fx:id="add" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToAddFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>
@@ -52,5 +52,10 @@
                </graphic>
             </Button>
          </children></HBox>
+      <Button fx:id="back" mnemonicParsing="false" onAction="#switchToHome" prefHeight="59.0" prefWidth="74.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
    </children>
 </VBox>

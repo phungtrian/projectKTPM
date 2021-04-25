@@ -51,10 +51,10 @@ public class TestSearch {
         try {
            //SearchFlight s = new SearchFlight();
            SearchFlight s = new SearchFlight(conn);
-            List<Flight> ds = s.FindFlight("HN");
+            List<Flight> ds = s.FindFlight("1");
             
             ds.forEach(p -> {
-                Assertions.assertTrue(p.getOrigin().toLowerCase().contains("HN"));
+                Assertions.assertEquals(p.getId(), 1);
             });
         } catch (SQLException ex) {
             Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
