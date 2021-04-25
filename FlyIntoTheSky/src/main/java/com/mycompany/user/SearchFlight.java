@@ -24,7 +24,7 @@ public class SearchFlight {
     public SearchFlight(Connection conn) {
         this.conn = conn;
     }
-    public List<Flight> FindFlight(String kw) throws SQLException
+    public List<Flight> FindFlightID(String kw) throws SQLException
     {
 //        Connection conn = JdbcUtils.getConn();
         String sql = "Select * FROM FLIGHT WHERE ID = ?";
@@ -44,6 +44,70 @@ public class SearchFlight {
        }
         return flights;
     }
+    public List<Flight> FindFlightOrigin(String ori) throws SQLException
+    {
+//        Connection conn = JdbcUtils.getConn();
+        String sql = "Select * FROM FLIGHT WHERE origin = ?";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, ori);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           int id = rs.getInt("id");
+           String origin = rs.getString("origin");
+           String destination = rs.getString("destination");
+           String boardingTime = rs.getString("boardingTime");
+           String day = rs.getString("day");
+           Flight flight = new Flight(id, origin, destination, boardingTime, day);
+           flights.add(flight);
+       }
+        return flights;
+    }
+    
+    public List<Flight> FindFlightDestination(String des) throws SQLException
+    {
+//        Connection conn = JdbcUtils.getConn();
+        String sql = "Select * FROM FLIGHT WHERE destination = ?";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, des);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           int id = rs.getInt("id");
+           String origin = rs.getString("origin");
+           String destination = rs.getString("destination");
+           String boardingTime = rs.getString("boardingTime");
+           String day = rs.getString("day");
+           Flight flight = new Flight(id, origin, destination, boardingTime, day);
+           flights.add(flight);
+       }
+        return flights;
+    }
+    
+    public List<Flight> FindFlightDay(String d) throws SQLException
+    {
+//        Connection conn = JdbcUtils.getConn();
+        String sql = "Select * FROM FLIGHT WHERE day = ?";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, d);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           int id = rs.getInt("id");
+           String origin = rs.getString("origin");
+           String destination = rs.getString("destination");
+           String boardingTime = rs.getString("boardingTime");
+           String day = rs.getString("day");
+           Flight flight = new Flight(id, origin, destination, boardingTime, day);
+           flights.add(flight);
+       }
+        return flights;
+    }
+    
+    
     
     public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
     {
@@ -70,7 +134,7 @@ public class SearchFlight {
     
     public boolean checkFind(String kw) throws SQLException
      {
-         List<Flight> flights = FindFlight(kw);
+         List<Flight> flights = FindFlightID(kw);
          if (flights.isEmpty()) return false;
          return true;
      }
