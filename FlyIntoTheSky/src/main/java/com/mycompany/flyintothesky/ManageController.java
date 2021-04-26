@@ -31,4 +31,9 @@ public class ManageController {
     private void switchToAddFlight() throws IOException{
         App.setRoot("addFlight");
     }
+    
+    @FXML
+    private void switchToFixFlight() throws IOException{
+        App.setRoot("fixFlight");
+    }
 }

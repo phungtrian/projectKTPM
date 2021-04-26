@@ -27,7 +27,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix a flight" textFill="#2d3b99">
+            <Button fx:id="fix" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToFixFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix a flight" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>

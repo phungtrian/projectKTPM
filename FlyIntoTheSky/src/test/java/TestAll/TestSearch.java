@@ -98,7 +98,7 @@ public class TestSearch {
             List<Flight> ds = s.FindFlightDay("10/21/2021");
             
             ds.forEach(p -> {
-                Assertions.assertTrue(p.getDate().toLowerCase().contains("10/12/2021"));
+                Assertions.assertTrue(p.getDate().contains("10/12/2021"));
             });
         } catch (SQLException ex) {
             Logger.getLogger(TestSearch.class.getName()).log(Level.SEVERE, null, ex);
