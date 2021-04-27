@@ -6,6 +6,7 @@ module com.mycompany.flyintothesky {
 
     opens com.mycompany.flyintothesky to javafx.fxml;
     exports com.mycompany.flyintothesky;
+    exports com.mycompany.pojo;
     requires javafx.graphicsEmpty;
     requires java.base;
 }

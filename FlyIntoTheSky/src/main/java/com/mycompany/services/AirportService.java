@@ -41,22 +41,23 @@ public class AirportService {
         return airports;
     }
     
-    public Airport getAirportById(int flightId) throws SQLException {
-        String q = "SELECT * FROM airport WHERE id=?";
+    public String getLocatetById(int flightId) throws SQLException {
+        String q = "SELECT * FROM flightdb.airport WHERE id=?;";
         PreparedStatement stm = this.conn.prepareStatement(q);
         stm.setInt(1, flightId);
         
         ResultSet rs = stm.executeQuery();
-        
-        Airport a = null;
-        
-        while (rs.next()) {
-            a = new Airport();
-            a.setId(rs.getInt("id"));
-            a.setLocation(rs.getString("location"));
-            break;
-        }
+        String a = rs.getString("location");
         
         return a;
+    }
+    
+    public int getAirportID(String locat) throws SQLException{
+        String q = "SELECT * FROM airport WHERE location = ?";
+        PreparedStatement stm = this.conn.prepareStatement(q);
+        stm.setString(1, locat);
+        ResultSet rs = stm.executeQuery();
+        
+        return rs.getInt("id");
     }
 }

@@ -7,26 +7,26 @@ package com.mycompany.pojo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  *
  * @author phung
  */
 public class Flight {
+
     private int id;
     private String origin;
     private String destination;
-    private String boardingTime;
+    private String time;
     private String day;
-    
-    public Flight(int id, String origin, String destination, String boardingTime, String day) {
-        this.id = id;
-        this.origin = origin;
-        this.destination = destination;
-        this.boardingTime = boardingTime;
-        this.day = day;
-    }
-    
+    private int planeId;
+//    public Flight(int id, int origin, int destination, String boardingTime, String day) {
+//        this.id = id;
+//        this.origin = origin;
+//        this.destination = destination;
+//        this.boardingTime = boardingTime;
+//        this.day = day;
+//    }
+
     /**
      * @return the id
      */
@@ -73,29 +73,44 @@ public class Flight {
      * @return the time
      */
     public String getTime() {
-        return boardingTime;
+        return time;
     }
 
     /**
      * @param time the time to set
      */
     public void setTime(String time) {
-        this.boardingTime = time;
+        this.time = time;
     }
 
-    
     /**
-     * @return the date
+     * @return the day
      */
-    public String getDate() {
+    public String getDay() {
         return day;
     }
 
     /**
-     * @param date the date to set
+     * @param day the day to set
      */
-    public void setDate(String date) {
-        this.day = date;
+    public void setDay(String day) {
+        this.day = day;
     }
+
+    /**
+     * @return the planeId
+     */
+    public int getPlaneId() {
+        return planeId;
+    }
+
+    /**
+     * @param planeId the planeId to set
+     */
+    public void setPlaneId(int planeId) {
+        this.planeId = planeId;
+    }
+
+ 
     
 }

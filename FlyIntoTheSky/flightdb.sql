@@ -58,6 +58,7 @@ CREATE TABLE `airport` (
 
 LOCK TABLES `airport` WRITE;
 /*!40000 ALTER TABLE `airport` DISABLE KEYS */;
+INSERT INTO `airport` VALUES (1,'HN'),(2,'SG'),(3,'TN');
 /*!40000 ALTER TABLE `airport` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,17 +95,13 @@ DROP TABLE IF EXISTS `flight`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `flight` (
   `id` int NOT NULL,
-  `day` date DEFAULT NULL,
-  `boardingtime` time DEFAULT NULL,
-  `destination` int DEFAULT NULL,
-  `origin` int DEFAULT NULL,
+  `origin` varchar(50) DEFAULT NULL,
+  `destination` varchar(50) DEFAULT NULL,
+  `day` varchar(25) DEFAULT NULL,
+  `time` varchar(20) DEFAULT NULL,
   `plane_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_flight_plane_idx` (`plane_id`) /*!80000 INVISIBLE */,
-  KEY `fk_flight_airport_idx` (`origin`),
-  KEY `fk_flight_airport1_idx` (`destination`),
-  CONSTRAINT `fk_flight_airport` FOREIGN KEY (`origin`) REFERENCES `airport` (`id`),
-  CONSTRAINT `fk_flight_airport1` FOREIGN KEY (`destination`) REFERENCES `airport` (`id`),
   CONSTRAINT `fk_flight_plane` FOREIGN KEY (`plane_id`) REFERENCES `plane` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -115,6 +112,7 @@ CREATE TABLE `flight` (
 
 LOCK TABLES `flight` WRITE;
 /*!40000 ALTER TABLE `flight` DISABLE KEYS */;
+INSERT INTO `flight` VALUES (1,'HN','SG','4/28/2021','12pm',1),(2,'SG','TN','4/29/2021','3pm',2);
 /*!40000 ALTER TABLE `flight` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,6 +135,7 @@ CREATE TABLE `plane` (
 
 LOCK TABLES `plane` WRITE;
 /*!40000 ALTER TABLE `plane` DISABLE KEYS */;
+INSERT INTO `plane` VALUES (1),(2),(3);
 /*!40000 ALTER TABLE `plane` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-24 21:23:35
+-- Dump completed on 2021-04-28  0:41:56
