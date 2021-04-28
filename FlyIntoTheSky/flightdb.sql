@@ -97,7 +97,7 @@ CREATE TABLE `flight` (
   `id` int NOT NULL,
   `origin` varchar(50) DEFAULT NULL,
   `destination` varchar(50) DEFAULT NULL,
-  `day` varchar(25) DEFAULT NULL,
+  `day` date DEFAULT NULL,
   `time` varchar(20) DEFAULT NULL,
   `plane_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -212,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-28 17:37:42
+-- Dump completed on 2021-04-28 19:22:21
