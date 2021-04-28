@@ -57,7 +57,7 @@
       </HBox>
       <HBox prefHeight="90.0" prefWidth="600.0">
          <children>
-            <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToFlights" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
+            <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
                <font>
                   <Font size="36.0" />
                </font>

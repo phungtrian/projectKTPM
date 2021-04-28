@@ -23,8 +23,8 @@ public class AddInfoController{
     private Button goBack;
      
     @FXML
-    private void switchToFlights() throws IOException{
-        App.setRoot("flights");
+    private void switchToSearch() throws IOException{
+        App.setRoot("searchFlight_BranchNew");
     }
     @FXML
     private void switchToConfirm() throws IOException{

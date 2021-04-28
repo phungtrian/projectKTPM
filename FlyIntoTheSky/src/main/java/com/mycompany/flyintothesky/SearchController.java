@@ -59,7 +59,13 @@ public class SearchController implements Initializable{
         }        
     }
     
-    
+    @FXML
+    private void searchFlight(ActionEvent event) {
+        String ori = cbNoidi.getSelectionModel().getSelectedItem().getLocation();
+        String des = cbNoiden.getSelectionModel().getSelectedItem().getLocation();
+        String d = date.getValue().toString();
+        loadData(ori, des, d);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -77,7 +83,8 @@ public class SearchController implements Initializable{
             Connection conn = JdbcUtils.getConn();
             AirportService s = new AirportService(conn);
             loadTable();
-            loadData("", "", "");
+            loadData("HN", "SG", "4/28/2021");
+            
 //            int ori = s.getAirportID(cbNoidi.getSelectionModel().toString());
 //            int des = s.getAirportID(cbNoiden.getSelectionModel().toString());
 //            String d = date.getValue().toString();
@@ -138,31 +145,28 @@ public class SearchController implements Initializable{
 
         TableColumn colTime = new TableColumn("Thời gian bay");
         colTime.setCellValueFactory(new PropertyValueFactory("time"));
-       
         
         TableColumn colAction = new TableColumn();
-        colAction.setCellFactory(obj -> {
-            Button btn = new Button("Chọn");
-            btn.setOnAction(evt ->{
-                try {
-                    App.setRoot("addInfo");
-                } catch (IOException ex) {
-                    Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            });
-
-            TableCell cell = new TableCell();
-            cell.setGraphic(btn);
-            return cell;
+        
+        if(colID.getCellValueFactory() != null){
+            
+            colAction.setCellFactory(obj -> {
+                Button btn = new Button("Chọn");
+                btn.setOnAction(evt ->{
+                    try {
+                        App.setRoot("addInfo");
+                    } catch (IOException ex) {
+                        Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                });
+                TableCell cell = new TableCell();
+                cell.setGraphic(btn);
+                return cell;
         });
-
+        }
         this.tbFlights.getColumns().addAll(colID, colFrom, colTo, colDay, colTime, colAction);
+
     }
-
-
-    
-
-
 }
 //    static String a;
 //    public String search(){
