@@ -58,7 +58,7 @@ CREATE TABLE `airport` (
 
 LOCK TABLES `airport` WRITE;
 /*!40000 ALTER TABLE `airport` DISABLE KEYS */;
-INSERT INTO `airport` VALUES (1,'HN'),(2,'SG'),(3,'TN');
+INSERT INTO `airport` VALUES (1,'HN'),(2,'SG'),(3,'DL'),(4,'PQ');
 /*!40000 ALTER TABLE `airport` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,9 +71,10 @@ DROP TABLE IF EXISTS `customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
   `id` int NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `phone` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `phone_UNIQUE` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,6 +84,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,'linkcute','214124124'),(2,'linkcute','342352');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +114,7 @@ CREATE TABLE `flight` (
 
 LOCK TABLES `flight` WRITE;
 /*!40000 ALTER TABLE `flight` DISABLE KEYS */;
-INSERT INTO `flight` VALUES (1,'HN','SG','2021-04-28','12pm',1),(2,'SG','TN','2021-04-29','3pm',2);
+INSERT INTO `flight` VALUES (1,'HN','SG','2021-04-28','12pm',1),(2,'SG','PQ','2021-04-29','3pm',2),(3,'SG','HN','2021-04-30','7am',3),(4,'SG','DL','2021-05-01','8am',2),(5,'PQ','DL','2021-05-02','13pm',3),(7,'SG','DL','2021-05-03','5pm',3);
 /*!40000 ALTER TABLE `flight` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +127,8 @@ DROP TABLE IF EXISTS `plane`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `plane` (
   `id` int NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `seat_total` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -135,7 +139,7 @@ CREATE TABLE `plane` (
 
 LOCK TABLES `plane` WRITE;
 /*!40000 ALTER TABLE `plane` DISABLE KEYS */;
-INSERT INTO `plane` VALUES (1),(2),(3);
+INSERT INTO `plane` VALUES (1,'BB2503',10),(2,'PTA0611',9),(3,'TL0304',8);
 /*!40000 ALTER TABLE `plane` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +153,7 @@ DROP TABLE IF EXISTS `seat`;
 CREATE TABLE `seat` (
   `id` int NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'BLANK',
   `plane_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_seat_plane_idx` (`plane_id`),
@@ -163,6 +167,7 @@ CREATE TABLE `seat` (
 
 LOCK TABLES `seat` WRITE;
 /*!40000 ALTER TABLE `seat` DISABLE KEYS */;
+INSERT INTO `seat` VALUES (1,'A1','Null',2),(2,'A2','Null',2),(3,'A3','Null',2),(4,'A4','Null',2),(5,'A5','Null',2),(6,'A6','Null',2),(7,'A7','Null',2),(8,'A8','Null',2),(9,'A9','Null',2),(10,'B1','Null',1),(11,'B2','Null',1),(12,'B3','Null',1),(13,'B4','Null',1),(14,'B5','Null',1),(15,'B6','Null',1),(16,'B7','Null',1),(17,'B8','Null',1),(18,'B9','Null',1),(19,'B10','Null',1),(20,'L1','Null',3),(21,'L2','Null',3),(22,'L3','Null',3),(23,'L4','Null',3),(24,'L5','Null',3),(25,'L6','Null',3),(26,'L7','Null',3),(27,'L8','Null',3);
 /*!40000 ALTER TABLE `seat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,14 +179,14 @@ DROP TABLE IF EXISTS `ticket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ticket` (
-  `id` int NOT NULL,
-  `price` decimal(10,0) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `time` time DEFAULT NULL,
-  `seat_id` int DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `price` decimal(10,0) DEFAULT '0',
+  `seat_id` int NOT NULL,
   `customer_id` int DEFAULT NULL,
   `agent_id` int DEFAULT NULL,
   `flight_id` int NOT NULL,
+  `status` varchar(45) DEFAULT 'Null',
+  `date_of_issue` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_ticket_customer_idx` (`customer_id`),
   KEY `fk_ticket_agent_idx` (`agent_id`),
@@ -191,7 +196,7 @@ CREATE TABLE `ticket` (
   CONSTRAINT `fk_ticket_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
   CONSTRAINT `fk_ticket_flight` FOREIGN KEY (`flight_id`) REFERENCES `flight` (`id`),
   CONSTRAINT `fk_ticket_seat1` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +205,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
+INSERT INTO `ticket` VALUES (81,0,23,2,NULL,7,'Booked',NULL),(82,0,24,NULL,NULL,7,'Null',NULL),(83,0,25,NULL,NULL,7,'Null',NULL),(84,0,26,NULL,NULL,7,'Null',NULL),(85,0,27,NULL,NULL,7,'Null',NULL);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -212,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-28 19:22:21
+-- Dump completed on 2021-05-03 14:18:46

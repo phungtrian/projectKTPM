@@ -10,25 +10,16 @@ package com.mycompany.pojo;
  */
 public class Plane {
 
-    /**
-     * @return the c
-     */
-    public Class getC() {
-        return c;
-    }
-
-    /**
-     * @param c the c to set
-     */
-    public void setC(Class c) {
-        this.c = c;
-    }
+    
     private int id;
-    private Class c;
+    private String name;
+    private int seatTotal;
       
-    public Plane(int maMayBay, Class khoangMayBay) {
-        this.id = maMayBay;
-        this.c = khoangMayBay;
+
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.id); //To change body of generated methods, choose Tools | Templates.
     }
     
     
@@ -45,4 +36,33 @@ public class Plane {
     public void setId(int id) {
         this.id = id;
     }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the seatTotal
+     */
+    public int getSeatTotal() {
+        return seatTotal;
+    }
+
+    /**
+     * @param seatTotal the seatTotal to set
+     */
+    public void setSeatTotal(int seatTotal) {
+        this.seatTotal = seatTotal;
+    }
+
 }

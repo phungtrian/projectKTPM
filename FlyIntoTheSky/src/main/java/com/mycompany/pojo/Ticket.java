@@ -6,21 +6,20 @@
 package com.mycompany.pojo;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  *
  * @author phung
  */
-public class Ticket {
+public class Ticket extends Seat{
     private int id;
+    private String dateOfIssue;
     private BigDecimal price;
-    private String time;
-    private String date;
-    private Agent nv;
-    private Customer kh;
-    private Flight cb;
-    private Seat s;
+    private int agentID;
+    private int customerId;
+    private int flightID;
+    private int seatID;
+    private String status;
     
     
     /**
@@ -51,88 +50,90 @@ public class Ticket {
         this.price = price;
     }
 
+  
     /**
-     * @return the time
+     * @return the agentID
      */
-    public String getTime() {
-        return time;
+    public int getAgentID() {
+        return agentID;
     }
 
     /**
-     * @param time the time to set
+     * @param agentID the agentID to set
      */
-    public void setTime(String time) {
-        this.time = time;
+    public void setAgentID(int agentID) {
+        this.agentID = agentID;
     }
 
     /**
-     * @return the date
+     * @return the customerId
      */
-    public String getDate() {
-        return date;
+    public int getCustomerId() {
+        return customerId;
     }
 
     /**
-     * @param date the date to set
+     * @param customerId the customerId to set
      */
-    public void setDate(String date) {
-        this.date = date;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     /**
-     * @return the kh
+     * @return the flightID
      */
-    public Customer getKh() {
-        return kh;
+    public int getFlightID() {
+        return flightID;
     }
 
     /**
-     * @param kh the kh to set
+     * @param flightID the flightID to set
      */
-    public void setKh(Customer kh) {
-        this.kh = kh;
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
     }
 
     /**
-     * @return the cb
+     * @return the seatID
      */
-    public Flight getCb() {
-        return cb;
+    public int getSeatID() {
+        return seatID;
     }
 
     /**
-     * @param cb the cb to set
+     * @param seatID the seatID to set
      */
-    public void setCb(Flight cb) {
-        this.cb = cb;
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
     }
 
     /**
-     * @return the s
+     * @return the status
      */
-    public Seat getS() {
-        return s;
+    public String getStatus() {
+        return status;
     }
 
     /**
-     * @param s the s to set
+     * @param status the status to set
      */
-    public void setS(Seat s) {
-        this.s = s;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     /**
-     * @return the nv
+     * @return the dateOfIssue
      */
-    public Agent getNv() {
-        return nv;
+    public String getDateOfIssue() {
+        return dateOfIssue;
     }
 
     /**
-     * @param nv the nv to set
+     * @param dateOfIssue the dateOfIssue to set
      */
-    public void setNv(Agent nv) {
-        this.nv = nv;
+    public void setDateOfIssue(String dateOfIssue) {
+        this.dateOfIssue = dateOfIssue;
     }
+
 }
 

@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.ConfirmController">
    <children>
       <HBox prefHeight="66.0" prefWidth="600.0">
@@ -26,7 +25,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="63.0" prefWidth="378.0" text="Label" textFill="#6974bc">
+            <Label fx:id="name" prefHeight="63.0" prefWidth="378.0" text="Name" textFill="#6974bc">
                <font>
                   <Font size="24.0" />
                </font>
@@ -40,7 +39,7 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="63.0" prefWidth="378.0" text="Label" textFill="#6974bc">
+            <Label fx:id="phone" prefHeight="63.0" prefWidth="378.0" text="Phone number" textFill="#6974bc">
                <font>
                   <Font size="24.0" />
                </font>
@@ -54,7 +53,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="161.0" text="Label" textFill="#6974bc">
+            <Label fx:id="ori" prefHeight="50.0" prefWidth="161.0" text="Origin" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -64,7 +63,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label layoutX="102.0" layoutY="10.0" prefHeight="50.0" prefWidth="194.0" text="Label" textFill="#6974bc">
+            <Label fx:id="des" layoutX="102.0" layoutY="10.0" prefHeight="50.0" prefWidth="194.0" text="Destination" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -78,7 +77,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="161.0" text="Label" textFill="#6974bc">
+            <Label fx:id="date" prefHeight="50.0" prefWidth="161.0" text="Date" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -88,7 +87,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="161.0" text="Label" textFill="#6974bc">
+            <Label fx:id="time" prefHeight="50.0" prefWidth="161.0" text="Time" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -102,17 +101,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="161.0" text="Label" textFill="#6974bc">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="75.0" text="Class:" textFill="#2d3b99">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <Label prefHeight="50.0" prefWidth="161.0" text="Label" textFill="#6974bc">
+            <Label fx:id="seatName" prefHeight="50.0" prefWidth="161.0" text="Seatname" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -126,7 +115,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="304.0" text="Label" textFill="#6974bc">
+            <Label fx:id="total" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="304.0" text="\$" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>
@@ -135,7 +124,7 @@
       </HBox>
       <HBox prefHeight="70.0" prefWidth="578.0">
          <children>
-            <Button fx:id="goBack" layoutX="460.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Cancel" textFill="WHITE">
+            <Button fx:id="goBack" layoutX="460.0" layoutY="20.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
@@ -143,7 +132,7 @@
                   <Insets left="320.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Confirm" textFill="WHITE">
+            <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>

@@ -14,7 +14,6 @@ public class Customer {
     private String name;
     private String phone;
     
-    
     /**
      * @return the id
      */
@@ -22,12 +21,6 @@ public class Customer {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
 
     /**
      * @return the name
@@ -55,5 +48,12 @@ public class Customer {
      */
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 }

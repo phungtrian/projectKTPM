@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.AddFlightController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.AddFilghtController">
    <children>
       <Label alignment="CENTER" prefHeight="89.0" prefWidth="651.0" text="Add flight" textFill="#2d3b99">
          <font>
@@ -24,7 +24,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <TextField prefHeight="33.0" prefWidth="179.0">
+            <TextField fx:id="id" prefHeight="33.0" prefWidth="179.0">
                <HBox.margin>
                   <Insets top="15.0" />
                </HBox.margin>
@@ -34,7 +34,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="37.0" prefWidth="178.0">
+            <ComboBox fx:id="cbPlane" prefHeight="37.0" prefWidth="178.0">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="34.0" prefWidth="158.0">
+            <ComboBox fx:id="cbOrigin" prefHeight="34.0" prefWidth="158.0">
                <HBox.margin>
                   <Insets top="20.0" />
                </HBox.margin>
@@ -58,7 +58,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ComboBox layoutX="129.0" layoutY="20.0" prefHeight="34.0" prefWidth="173.0">
+            <ComboBox fx:id="cbDestination" layoutX="129.0" layoutY="20.0" prefHeight="34.0" prefWidth="173.0">
                <HBox.margin>
                   <Insets top="20.0" />
                </HBox.margin>
@@ -72,7 +72,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <DatePicker prefHeight="35.0" prefWidth="197.0">
+            <DatePicker fx:id="date" prefHeight="35.0" prefWidth="197.0">
                <HBox.margin>
                   <Insets top="8.0" />
                </HBox.margin>
@@ -82,7 +82,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <TextField prefHeight="33.0" prefWidth="150.0">
+            <TextField fx:id="time" prefHeight="33.0" prefWidth="150.0">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -96,7 +96,7 @@
                   <Font size="33.0" />
                </font>
             </Button>
-            <Button fx:id="add" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #2d3b99;" text="Add" textFill="WHITE">
+            <Button fx:id="add" alignment="CENTER" mnemonicParsing="false" onAction="#addFlight" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #2d3b99;" text="Add" textFill="WHITE">
                <font>
                   <Font size="29.0" />
                </font>

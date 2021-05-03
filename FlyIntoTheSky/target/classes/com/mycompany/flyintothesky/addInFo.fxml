@@ -28,7 +28,7 @@
                   <Insets left="60.0" />
                </padding>
             </Label>
-            <TextField prefHeight="38.0" prefWidth="230.0" style="-fx-background-radius: 10;">
+            <TextField fx:id="name" prefHeight="38.0" prefWidth="230.0" style="-fx-background-radius: 10;">
                <HBox.margin>
                   <Insets top="22.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
                   <Insets left="50.0" />
                </padding>
             </Label>
-            <TextField prefHeight="38.0" prefWidth="230.0" style="-fx-background-radius: 10;">
+            <TextField fx:id="phone" prefHeight="38.0" prefWidth="230.0" style="-fx-background-radius: 10;">
                <HBox.margin>
                   <Insets top="22.0" />
                </HBox.margin>
