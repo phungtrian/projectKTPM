@@ -7,7 +7,6 @@ package TestAll;
 
 import com.mycompany.pojo.Flight;
 import com.mycompany.services.JdbcUtils;
-import com.mycompany.user.SearchFlight;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.Duration;

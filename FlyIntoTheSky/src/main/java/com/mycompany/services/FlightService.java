@@ -10,7 +10,10 @@ import com.mycompany.pojo.Flight;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -66,5 +69,31 @@ public class FlightService {
         }
         return f;
 
+    }
+    public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
+    {
+        if (ori == null && des == null && d == null ) {
+            throw new SQLDataException();
+        }
+        String sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND destination = ? AND day = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, ori);
+        stm.setString(2, des);
+        stm.setString(3, d);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           Flight f = new Flight();
+           f.setId(rs.getInt("id"));
+           f.setOrigin(rs.getString("origin"));
+           f.setDestination(rs.getString("destination"));
+           f.setDay(rs.getString("day"));
+           f.setTime(rs.getString("time"));
+           f.setPlaneId(rs.getInt("plane_id"));
+
+           flights.add(f);
+       }
+        return flights;
     }
 }

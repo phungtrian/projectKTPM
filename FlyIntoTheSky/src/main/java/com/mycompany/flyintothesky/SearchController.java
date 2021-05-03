@@ -5,11 +5,11 @@ import com.mycompany.pojo.Flight;
 import com.mycompany.pojo.Seat;
 import com.mycompany.pojo.Ticket;
 import com.mycompany.services.AirportService;
+import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
 import com.mycompany.services.PlaneService;
 import com.mycompany.services.SeatService;
 import com.mycompany.services.TicketService;
-import com.mycompany.user.SearchFlight;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -95,9 +95,9 @@ public class SearchController implements Initializable{
         try {
             
             Connection conn = JdbcUtils.getConn();
-            SearchFlight s = new SearchFlight(conn);
+            FlightService f = new FlightService(conn);
             
-            tbFlights.setItems(FXCollections.observableList(s.FindFlightLocation(ori, des, d)));
+            tbFlights.setItems(FXCollections.observableList(f.FindFlightLocation(ori, des, d)));
 
             conn.close();
         } catch (SQLException ex) {

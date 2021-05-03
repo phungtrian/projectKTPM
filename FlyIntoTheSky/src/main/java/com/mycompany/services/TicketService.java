@@ -167,4 +167,11 @@ public class TicketService {
         }
         return false;
     }
+    
+    public static void DeleteTicket(Ticket t) throws SQLException { 
+       Connection conn = JdbcUtils.getConn();
+       String sql = "DELETE FROM Ticket WHERE id = ?";
+       PreparedStatement stm = conn.prepareStatement(sql);
+       stm.setInt (1,t.getId());
+    }
 }
