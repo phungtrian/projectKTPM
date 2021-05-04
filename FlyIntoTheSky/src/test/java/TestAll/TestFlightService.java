@@ -57,7 +57,7 @@ public class TestFlightService {
     
     
 @Test
-    public void testUnknowIDGetFlightById() throws SQLException {
+    public void testUnknownIDGetFlightById() throws SQLException {
         FlightService s = new FlightService(conn);
         Flight f = s.getFlightById(12345);
             
