@@ -5,11 +5,14 @@
  */
 package TestAll;
 
+import com.mycompany.pojo.Flight;
 import com.mycompany.pojo.Ticket;
+import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
 import com.mycompany.services.TicketService;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.Duration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,6 +66,26 @@ public class TestTicketService {
             TicketService s = new TicketService(conn);
             Ticket tickets = s.getTicketByID(-81);
             Assertions.assertEquals(tickets.getId(), 0);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void testTimeout() {
+        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
+            TicketService s = new TicketService(conn);
+            Ticket ticket = s.getTicketByID(0);
+        });
+    }
+    
+    @Test
+    public void testGetIdByCusId() {
+        try {
+            TicketService s = new TicketService(conn);
+            
+            Assertions.assertEquals(s.getIdByCusId(2), 81);
            
         } catch (SQLException ex) {
             Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
