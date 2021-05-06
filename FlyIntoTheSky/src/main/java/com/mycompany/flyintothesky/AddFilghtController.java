@@ -15,6 +15,7 @@ import com.mycompany.services.PlaneService;
 import com.mycompany.services.SeatService;
 import com.mycompany.services.TicketService;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -105,6 +106,16 @@ public class AddFilghtController implements Initializable {
            fl.setTime(time.getText());
            if(f.addFilght(fl))
            {
+               double price;
+               switch(fl.getPlaneId()){
+                    case 1:
+                        price = fl.unitPrice() * 1.5;
+                    case 2:
+                        price = fl.unitPrice() * 1.2;
+                    case 3:
+                        price = fl.unitPrice() * 2.0;
+                default:
+            }
                int seatId = s.checkNullByPlaneId(fl.getPlaneId());
                while(seatId != -1){
                    t.addTicket(fl.getId(), seatId);
