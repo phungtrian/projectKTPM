@@ -28,8 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-
+import com.mycompany.flyintothesky.SearchController;
 /**
  * FXML Controller class
  *
@@ -59,34 +58,29 @@ public class ConfirmController implements Initializable {
     
     
     
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             Connection conn = JdbcUtils.getConn();
             TicketService t = new TicketService(conn);
+            CustomerService c = new CustomerService(conn);
+            FlightService f = new FlightService(conn);
+            SeatService s = new SeatService(conn);
+
+            SearchController search = new SearchController();
             
-            int ticketId = t.findTicketIdByStatus("Added"); 
-            if( ticketId > 0 ){
-                
-                Ticket ticket = t.getTicketByID(ticketId);
-                
-                CustomerService c = new CustomerService(conn);
-                FlightService f = new FlightService(conn);
-                SeatService s = new SeatService(conn);
-                
-                Seat seat = s.getSeatById(ticket.getSeatID());
-                Flight flight = f.getFlightById(ticket.getFlightID());
-                Customer cus = c.getCusById(ticket.getCustomerId());
-                
-                this.name.setText(cus.getName());
-                this.phone.setText(cus.getPhone());
-                this.ori.setText(flight.getOrigin());
-                this.des.setText(flight.getDestination());
-                this.date.setText(flight.getDay());
-                this.time.setText(flight.getTime());
-                this.seatName.setText(seat.getName());
-            }   
-            
+            Seat seat = s.getSeatById(search.T.getSeatID());
+            Flight flight = f.getFlightById(search.T.getFlightID());
+            Customer cus = c.getCusById(t.getCusID(search.T.getId()));
+
+            this.name.setText(cus.getName());
+            this.phone.setText(cus.getPhone());
+            this.ori.setText(flight.getOrigin());
+            this.des.setText(flight.getDestination());
+            this.date.setText(flight.getDay());
+            this.time.setText(flight.getTime());
+            this.seatName.setText(seat.getName());
             conn.close();
             
         } catch (SQLException ex) {
@@ -100,14 +94,12 @@ public class ConfirmController implements Initializable {
             TicketService t = new TicketService(conn);
             CustomerService c = new CustomerService(conn);
             
-            int ticketId = t.findTicketIdByStatus("Added");
-            int id = c.getCusIdByPhone(this.phone.getText());
-            
+            SearchController search = new SearchController();
             LocalDate toDay = LocalDate.now();
             
-            if( t.addDateIssue(ticketId, toDay.toString())){
+            if( t.addDateIssue(search.T.getId(), toDay.toString())){
                 
-                if(t.changeStatus(t.getIdByCusId(id), "Booked")){
+                if(t.changeStatus(search.T.getId(), "Booked")){
                     
                     Utils.getBox("Do you want to pay?", Alert.AlertType.CONFIRMATION)
                             .showAndWait().ifPresent(bt -> {
@@ -138,9 +130,11 @@ public class ConfirmController implements Initializable {
             Connection conn = JdbcUtils.getConn();
             TicketService t = new TicketService(conn);
             
-            while(t.changeStatus(t.findTicketIdByStatus("Added"), "Null"))
-                App.setRoot("searchFlight_BranchNew");
+            SearchController search = new SearchController();
             
+            if(t.changeStatus(search.T.getId(), "Null"))
+                App.setRoot("searchFlight_BranchNew");
+                
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ConfirmController.class.getName()).log(Level.SEVERE, null, ex);

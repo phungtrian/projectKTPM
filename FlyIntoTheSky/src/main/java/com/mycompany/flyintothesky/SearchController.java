@@ -2,34 +2,27 @@ package com.mycompany.flyintothesky;
 
 import com.mycompany.pojo.Airport;
 import com.mycompany.pojo.Flight;
-import com.mycompany.pojo.Seat;
 import com.mycompany.pojo.Ticket;
 import com.mycompany.services.AirportService;
 import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
-import com.mycompany.services.PlaneService;
-import com.mycompany.services.SeatService;
 import com.mycompany.services.TicketService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -39,23 +32,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class SearchController implements Initializable{
     @FXML
     private Button btSearch;
-
+    @FXML
+    private Button btBack;
     @FXML
     private ComboBox<Airport> cbNoidi;
-    
-    @FXML private DatePicker date;
-   
+    @FXML 
+    private DatePicker date;
     @FXML
     private ComboBox<Airport> cbNoiden;
-
     @FXML
     private TableView<Flight> tbFlights;
     
-    private static Connection conn;
-    
-    private void switchToTicket() throws IOException{
-        App.setRoot("ticket");
-    }
+    public static Ticket T;
+ 
     
     @FXML
     private void seletedDate(ActionEvent event){
@@ -130,13 +119,10 @@ public class SearchController implements Initializable{
                     TicketService t = new TicketService(conn);
                     
                     Flight f = this.tbFlights.getSelectionModel().getSelectedItem();
-                    int ticketId = t.checkNullByFlightId(f.getId());
-
-                    if(t.changeStatus(ticketId, "Booking"))
-                    {
-                        
+                    
+                    T = (t.getTicketByID(t.checkNullByFlightId(f.getId())));
+                    if(t.checkNullByFlightId(f.getId()) != -1)
                         App.setRoot("addInfo");
-                    }
                     else
                         Utils.getBox("Het ve goi liu liu!!!", Alert.AlertType.ERROR).show();
                     conn.close();
@@ -153,4 +139,11 @@ public class SearchController implements Initializable{
         this.tbFlights.getColumns().addAll(colID, colFrom, colTo, colDay, colTime);
 
     }
+
+    @FXML
+    private void switchToTicket(ActionEvent event) throws IOException {
+        App.setRoot("ticket");
+    }
+
+
 }

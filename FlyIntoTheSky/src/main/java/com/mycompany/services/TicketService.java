@@ -6,6 +6,7 @@
 package com.mycompany.services;
 
 import com.mycompany.pojo.Ticket;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,6 +47,7 @@ public class TicketService {
         return t;
     }
     
+    
     public int getIdByCusId(int id) throws SQLException{
         String sql = "SELECT * FROM flightdb.ticket WHERE  customer_id = ?;";
         PreparedStatement stm = this.conn.prepareStatement(sql);
@@ -57,15 +59,15 @@ public class TicketService {
         return -1;
     }
     
-    
-    public int countTicketByFlightId(int id) throws SQLException{
-        String sql = "SELECT count(flight_id)  FROM flightdb.ticket WHERE flight_id = ?;";
+    public int getCusID(int ticketId) throws SQLException{
+        String sql = "SELECT * FROM flightdb.ticket WHERE id = ?;";
         PreparedStatement stm = this.conn.prepareStatement(sql);
-        stm.setInt(1, id);
+        stm.setInt(1, ticketId);
         
         ResultSet rs = stm.executeQuery();
-        return rs.getInt("count(flight_id)");
-        
+        if(rs.next())
+            return rs.getInt("customer_id");
+        return -1;
     }
     
     
@@ -168,10 +170,34 @@ public class TicketService {
         return false;
     }
     
-    public static void DeleteTicket(Ticket t) throws SQLException { 
-       Connection conn = JdbcUtils.getConn();
-       String sql = "DELETE FROM Ticket WHERE id = ?";
-       PreparedStatement stm = conn.prepareStatement(sql);
-       stm.setInt (1,t.getId());
+    public boolean DeleteTicket(int ticketId){ 
+        try {
+            Connection conn = JdbcUtils.getConn();
+            String sql = "DELETE FROM flightdb.ticket WHERE id = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setInt(1,ticketId);
+            
+            int row = stm.executeUpdate();
+            return row > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean addPrice(int ticketId, BigDecimal p){
+        try {
+            String sql = "UPDATE flightdb.ticket SET price = ? WHERE filght_id = ?;";
+            PreparedStatement stm = this.conn.prepareStatement(sql);
+            
+            stm.setBigDecimal(1, p);
+            stm.setInt(2, ticketId);
+            
+            int row = stm.executeUpdate();
+            return row > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

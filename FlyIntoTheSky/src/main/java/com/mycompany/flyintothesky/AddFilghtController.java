@@ -18,10 +18,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -73,6 +75,15 @@ public class AddFilghtController implements Initializable {
         }
     }    
     
+    @FXML
+    private void seletedDate(ActionEvent event){
+        LocalDate toDay = LocalDate.now();
+        LocalDate input = date.getValue();
+        if(input.isBefore(toDay)){
+            Utils.getBox("Please pick a day from future!!!", Alert.AlertType.INFORMATION).show();
+            date.setValue(toDay);
+        }        
+    }
     @FXML
     private void switchToManage() throws IOException{
         App.setRoot("manage");
