@@ -73,7 +73,7 @@ public class TestTicketService {
     }
     
     @Test
-    public void testTimeout() {
+    public void testTimeoutGetTicketByID() {
         Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
             TicketService s = new TicketService(conn);
             Ticket ticket = s.getTicketByID(0);
@@ -92,4 +92,112 @@ public class TestTicketService {
         }
     }
     
+    @Test
+    public void testUnknownIDGetIdByCusId() {
+        try {
+            TicketService s = new TicketService(conn);
+            
+            Assertions.assertEquals(s.getIdByCusId(234), -1);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void testTimeoutGetIdByCusId() {
+        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
+            TicketService s = new TicketService(conn);
+            int ticket = s.getIdByCusId(0);
+        });
+    }
+    
+    @Test
+    public void testCountTicketByFlightId() {
+        try {
+            TicketService s = new TicketService(conn);
+            
+            Assertions.assertEquals(s.countTicketByFlightId(7), 5);//chưa có làm để đây chơi thôi
+            
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void testNotCorrectIDCountTicketByFlightId() {
+        try {
+            TicketService s = new TicketService(conn);
+            
+            Assertions.assertEquals(s.countTicketByFlightId(-100000), 0);
+            
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+//    @Test
+//    public void testTrueAddTicket() {
+//        TicketService s = new TicketService(conn);
+//        Assertions.assertTrue(s.addTicket(1, 10));
+//    }
+    
+    @Test
+    public void testFalseAddTicket() {
+        TicketService s = new TicketService(conn);
+        
+        Assertions.assertFalse(s.addTicket(100000, 3000));
+    }
+    
+    
+    
+    @Test
+    public void testTrueAddCusInfo() {
+        TicketService s = new TicketService(conn);
+        Assertions.assertTrue(s.addCusInfo(82, 1));
+    }
+    
+    @Test
+    public void testFalseAddCusInfo() {
+        TicketService s = new TicketService(conn);
+        Assertions.assertFalse(s.addCusInfo(80000, -10000000));
+    }
+    
+    @Test
+    public void testTrueChangeStatus() {
+        TicketService s = new TicketService(conn);
+        Assertions.assertTrue(s.changeStatus(82, "Booked"));
+    }
+    
+    @Test
+    public void testFalseChangeStatus() {
+        TicketService s = new TicketService(conn);
+        Assertions.assertFalse(s.changeStatus(-100, "Booked"));
+    }
+    
+    @Test
+    public void testFindTicketIdByStatus() {
+        
+        TicketService s = new TicketService(conn);
+        Assertions.assertEquals(81, s.findTicketIdByStatus("Booked"));
+        
+    }
+    
+    @Test
+    public void testFalseFindTicketIdByStatus() {
+        
+        TicketService s = new TicketService(conn);
+        Assertions.assertEquals(-1, s.findTicketIdByStatus("like"));
+        
+    }
+    
+    @Test
+    public void testCheckNullByFlightId() {
+        
+        TicketService s = new TicketService(conn);
+        Assertions.assertEquals(83, s.checkNullByFlightId(7));
+        
+    }
 }

@@ -168,10 +168,19 @@ public class TicketService {
         return false;
     }
     
-    public static void DeleteTicket(Ticket t) throws SQLException { 
-       Connection conn = JdbcUtils.getConn();
-       String sql = "DELETE FROM Ticket WHERE id = ?";
-       PreparedStatement stm = conn.prepareStatement(sql);
-       stm.setInt (1,t.getId());
+    public boolean DeleteTicket(int ticketId){ 
+        try {
+            Connection conn = JdbcUtils.getConn();
+            String sql = "DELETE FROM flightdb.ticket WHERE id = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            
+            stm.setInt(1,ticketId);
+            
+            int row = stm.executeUpdate();
+            return row > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
