@@ -14,7 +14,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.FixFlightController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="90.0" prefWidth="600.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#switchToManage" prefHeight="64.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
                <font>
@@ -38,7 +38,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <TextField prefHeight="32.0" prefWidth="171.0">
+            <TextField fx:id="txtId" onKeyPressed="#pressEnter" prefHeight="32.0" prefWidth="171.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <DatePicker prefHeight="32.0" prefWidth="196.0">
+            <DatePicker fx:id="dpDate" prefHeight="32.0" prefWidth="196.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -62,7 +62,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="32.0" prefWidth="165.0">
+            <ComboBox fx:id="cbOri" prefHeight="32.0" prefWidth="165.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -72,20 +72,21 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="32.0" prefWidth="181.0">
+            <ComboBox fx:id="cbDes" prefHeight="32.0" prefWidth="181.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
             </ComboBox>
          </children>
       </HBox>
-      <TableView prefHeight="153.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
+      <TableView fx:id="tbFlights" prefHeight="210.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="147.20001220703125" text="Origin" />
-            <TableColumn prefWidth="153.5999755859375" text="Destination" />
-            <TableColumn prefWidth="121.60003662109375" text="Day" />
-            <TableColumn prefWidth="104.0" />
+          <TableColumn fx:id="colId" prefWidth="75.0" style=": center;" text="ID" />
+          <TableColumn fx:id="colOri" prefWidth="115.99999237060547" text="Origin" />
+            <TableColumn fx:id="colDes" prefWidth="118.4000244140625" text="Destination" />
+            <TableColumn fx:id="colDay" prefWidth="125.5999755859375" text="Day" />
+            <TableColumn fx:id="colTime" prefWidth="88.00009155273438" text="Time" />
+            <TableColumn fx:id="colDelete" prefWidth="76.00006103515625" />
         </columns>
       </TableView>
    </children>
