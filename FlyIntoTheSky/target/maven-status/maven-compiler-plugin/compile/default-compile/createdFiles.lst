@@ -1,7 +1,10 @@
+com\mycompany\pojo\Agent.class
 com\mycompany\flyintothesky\HomeController.class
+com\mycompany\flyintothesky\TicketController.class
 com\mycompany\pojo\Seat.class
 com\mycompany\services\JdbcUtils.class
 com\mycompany\pojo\Plane.class
+com\mycompany\flyintothesky\Utils.class
 com\mycompany\services\PlaneService.class
 com\mycompany\pojo\Ticket.class
 com\mycompany\flyintothesky\LoginController.class
