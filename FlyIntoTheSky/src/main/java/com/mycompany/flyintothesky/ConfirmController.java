@@ -72,7 +72,7 @@ public class ConfirmController implements Initializable {
             
             Seat seat = s.getSeatById(search.T.getSeatID());
             Flight flight = f.getFlightById(search.T.getFlightID());
-            Customer cus = c.getCusById(t.getCusID(search.T.getId()));
+            Customer cus = c.getCusById(t.getCusId(search.T.getId()));
 
             this.name.setText(cus.getName());
             this.phone.setText(cus.getPhone());
