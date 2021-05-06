@@ -6,8 +6,6 @@
 package com.mycompany.pojo;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 /**
  *
  * @author phung
@@ -22,52 +20,52 @@ public class Flight {
     private int planeId;
     
     
-    public BigDecimal unitPrice(){
+    public double unitPrice(){
         if(this.origin == "HN"){
             switch(this.destination){
                     case "SG":
-                        return BigDecimal.valueOf(1000000);
+                        return 1000000;
                     case "DL":
-                        return BigDecimal.valueOf(1300000);
+                        return 1300000;
                     case "PQ":
-                        return BigDecimal.valueOf(2000000);
+                        return 2000000;
                 default:
             }
         }
         else if(this.origin == "SG"){
                 switch(this.destination){
                     case "HN":
-                        return BigDecimal.valueOf(900000);
+                        return 900000;
                     case "DL":
-                        return BigDecimal.valueOf(700000);
+                        return 700000;
                     case "PQ":
-                        return BigDecimal.valueOf(1000000);
+                        return 1000000;
                 default:
             }
                 }
         else if(this.origin == "DL"){
                 switch(this.destination){
                     case "HN":
-                        return BigDecimal.valueOf(1500000);
+                        return 1500000;
                     case "SG":
-                        return BigDecimal.valueOf(800000);
+                        return 800000;
                     case "PQ":
-                        return BigDecimal.valueOf(1200000);
+                        return 1200000;
                 default:
             }
                 }
         else if(this.origin == "PQ"){
                 switch(this.destination){
                     case "HN":
-                        return BigDecimal.valueOf(2200000);
+                        return 2200000;
                     case "DL":
-                        return BigDecimal.valueOf(1700000);
+                        return 1700000;
                     case "SG":
-                        return BigDecimal.valueOf(1000000);
+                        return 1000000;
                 default:
             }
                 }
-        return BigDecimal.ZERO;
+        return 0;
         }
    
 
