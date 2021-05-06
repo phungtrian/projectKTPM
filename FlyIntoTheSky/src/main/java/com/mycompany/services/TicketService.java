@@ -46,6 +46,21 @@ public class TicketService {
         return t;
     }
     
+    public int getCusId(int ticketId){
+        try {
+            String sql = "SELECT * FROM flightdb.ticket WHERE id = ?;";
+            PreparedStatement stm = this.conn.prepareStatement(sql);
+            stm.setInt(1, ticketId);
+            
+            ResultSet rs = stm.executeQuery();
+            if(rs.next())
+                return rs.getInt("customer_id");
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+    
     public int getIdByCusId(int id) throws SQLException{
         String sql = "SELECT * FROM flightdb.ticket WHERE  customer_id = ?;";
         PreparedStatement stm = this.conn.prepareStatement(sql);
