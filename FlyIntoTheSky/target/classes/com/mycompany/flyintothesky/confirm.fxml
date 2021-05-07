@@ -115,7 +115,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label fx:id="total" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="304.0" text="\$" textFill="#6974bc">
+            <Label fx:id="total" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="304.0" text="VND" textFill="#6974bc">
                <font>
                   <Font size="22.0" />
                </font>

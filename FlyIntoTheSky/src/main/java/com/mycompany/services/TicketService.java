@@ -6,6 +6,7 @@
 package com.mycompany.services;
 
 import com.mycompany.pojo.Ticket;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -84,13 +85,15 @@ public class TicketService {
     }
     
     
-    public boolean addTicket(int flightID, int seatID){
+    public boolean addTicket(int flightID, int seatID, BigDecimal price){
         try {
-            String sql = "INSERT INTO `flightdb`.`ticket` (`seat_id`, `flight_id`) VALUES (?, ?);";
+            String sql = "INSERT INTO flightdb.ticket (seat_id, flight_id, price) VALUES (?, ?, ?);";
             PreparedStatement stm = this.conn.prepareStatement(sql);
             
             stm.setInt(1, seatID);
             stm.setInt(2, flightID);
+            stm.setBigDecimal(3, price);
+            
             int rows = stm.executeUpdate();
             
             return rows > 0;

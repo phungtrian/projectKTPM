@@ -8,7 +8,6 @@ package com.mycompany.flyintothesky;
 import com.mycompany.pojo.Customer;
 import com.mycompany.pojo.Flight;
 import com.mycompany.pojo.Seat;
-import com.mycompany.pojo.Ticket;
 import com.mycompany.services.CustomerService;
 import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
@@ -28,7 +27,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import com.mycompany.flyintothesky.SearchController;
 /**
  * FXML Controller class
  *
@@ -81,6 +79,7 @@ public class ConfirmController implements Initializable {
             this.date.setText(flight.getDay());
             this.time.setText(flight.getTime());
             this.seatName.setText(seat.getName());
+            this.total.setText(String.valueOf(search.T.getPrice() + "VND"));
             conn.close();
             
         } catch (SQLException ex) {

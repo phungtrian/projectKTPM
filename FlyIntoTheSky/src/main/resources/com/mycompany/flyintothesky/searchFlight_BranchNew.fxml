@@ -34,17 +34,17 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Origin:" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Origin" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="1">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Destination:" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="2">
+      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Destination" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="2">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Date fly:" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" text="Date fly" textAlignment="CENTER" textFill="#2d3b99" GridPane.rowIndex="3">
          <font>
             <Font size="25.0" />
          </font>

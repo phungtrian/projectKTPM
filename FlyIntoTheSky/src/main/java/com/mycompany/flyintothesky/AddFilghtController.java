@@ -106,19 +106,22 @@ public class AddFilghtController implements Initializable {
            fl.setTime(time.getText());
            if(f.addFilght(fl))
            {
-               double price;
+               double price = 0;
                switch(fl.getPlaneId()){
                     case 1:
                         price = fl.unitPrice() * 1.5;
+                        break;
                     case 2:
                         price = fl.unitPrice() * 1.2;
+                        break;
                     case 3:
                         price = fl.unitPrice() * 2.0;
+                        break;
                 default:
             }
                int seatId = s.checkNullByPlaneId(fl.getPlaneId());
                while(seatId != -1){
-                   t.addTicket(fl.getId(), seatId);
+                   t.addTicket(fl.getId(), seatId, BigDecimal.valueOf(price));
                    s.changeStatus(seatId, "Creating");
                    seatId = s.checkNullByPlaneId(fl.getPlaneId());
                }

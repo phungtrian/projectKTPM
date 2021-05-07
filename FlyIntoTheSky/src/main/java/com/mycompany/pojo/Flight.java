@@ -5,7 +5,6 @@
  */
 package com.mycompany.pojo;
 
-import java.math.BigDecimal;
 /**
  *
  * @author phung
@@ -21,51 +20,64 @@ public class Flight {
     
     
     public double unitPrice(){
-        if(this.origin == "HN"){
-            switch(this.destination){
+        double price = 0;
+        switch (this.origin) {
+            case "HN":
+                switch(this.destination){
                     case "SG":
-                        return 1000000;
+                        price = 1000000;
+                        break;
                     case "DL":
-                        return 1300000;
+                        price = 1300000;
+                        break;
                     case "PQ":
-                        return 2000000;
-                default:
-            }
+                        price = 2000000;
+                        break;
+                    default:
+                }   break;
+            case "SG":
+                switch(this.destination){
+                    case "HN":
+                        price = 900000;
+                        break;
+                    case "DL":
+                        price = 700000;
+                        break;
+                    case "PQ":
+                        price = 1000000;
+                        break;
+                    default:
+                }   break;
+            case "DL":
+                switch(this.destination){
+                    case "HN":
+                        price = 1500000;
+                        break;
+                    case "SG":
+                        price = 800000;
+                        break;
+                    case "PQ":
+                        price = 1200000;
+                        break;
+                    default:
+                }   break;
+            case "PQ":
+                switch(this.destination){
+                    case "HN":
+                        price = 2200000;
+                        break;
+                    case "DL":
+                        price = 1700000;
+                        break;
+                    case "SG":
+                        price = 1000000;
+                        break;
+                    default:
+                }   break;
+            default:
+                break;
         }
-        else if(this.origin == "SG"){
-                switch(this.destination){
-                    case "HN":
-                        return 900000;
-                    case "DL":
-                        return 700000;
-                    case "PQ":
-                        return 1000000;
-                default:
-            }
-                }
-        else if(this.origin == "DL"){
-                switch(this.destination){
-                    case "HN":
-                        return 1500000;
-                    case "SG":
-                        return 800000;
-                    case "PQ":
-                        return 1200000;
-                default:
-            }
-                }
-        else if(this.origin == "PQ"){
-                switch(this.destination){
-                    case "HN":
-                        return 2200000;
-                    case "DL":
-                        return 1700000;
-                    case "SG":
-                        return 1000000;
-                default:
-            }
-                }
-        return 0;
+        return price;
         }
    
 
