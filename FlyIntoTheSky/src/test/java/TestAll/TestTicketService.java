@@ -144,12 +144,12 @@ public class TestTicketService {
 //        Assertions.assertTrue(s.addTicket(1, 10));
 //    }
     
-    @Test
-    public void testFalseAddTicket() {
-        TicketService s = new TicketService(conn);
-        
-        Assertions.assertFalse(s.addTicket(100000, 3000));
-    }
+//    @Test
+//    public void testFalseAddTicket() {
+//        TicketService s = new TicketService(conn);
+//        
+//        Assertions.assertFalse(s.addTicket(100000, 3000));
+//    }
     
     
     

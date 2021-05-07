@@ -81,6 +81,7 @@ public class ConfirmController implements Initializable {
             this.date.setText(flight.getDay());
             this.time.setText(flight.getTime());
             this.seatName.setText(seat.getName());
+            this.total.setText(String.valueOf(search.T.getPrice() + "VND"));
             conn.close();
             
         } catch (SQLException ex) {
