@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestAll.TestPlaneService
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.919 s <<< FAILURE! - in TestAll.TestPlaneService
+testGetTotalSeatByID  Time elapsed: 0.078 s  <<< ERROR!
+java.sql.SQLException: Before start of result set
+	at com.mycompany.flyintothesky/TestAll.TestPlaneService.testGetTotalSeatByID(TestPlaneService.java:49)
+

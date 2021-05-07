@@ -58,5 +58,90 @@ public class TestSeatService {
         }
     }
     
+    @Test
+    public void testNullGetSeatById() {
+        try {
+            SeatService s = new SeatService(conn);
+            Seat seats = s.getSeatById(-100);
+            
+            
+                Assertions.assertNull(seats.getName());
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSeatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void testCheckNullByPlaneId() throws SQLException {
+        SeatService s = new SeatService(conn);
+        Assertions.assertEquals(10, s.checkNullByPlaneId(1));
+        
+    }
+    
+    @Test
+    public void testWrongCheckNullByPlaneId() throws SQLException {
+        SeatService s = new SeatService(conn);
+        Assertions.assertEquals(-1, s.checkNullByPlaneId(-123));
+        
+    }
+    
+//    @Test
+//    public void testGetSeatNameById() {
+//        SeatService s = new SeatService(conn);
+//        
+//        Assertions.assertTrue(s.getSeatNameById(1).contains("A1"));
+//    }
+    
+//    @Test
+//    public void testChangeStatus() throws SQLException { //chạy được rồi ẩn để k đổi dữ liệu
+//        SeatService s = new SeatService(conn);
+//        Assertions.assertTrue(s.changeStatus(10, "Null"));
+//        
+//    }
+    
+    @Test
+    public void testFindSeatIdByStatus() {
+        
+        SeatService s = new SeatService(conn);
+       
+        try {
+            Assertions.assertEquals(1, s.findSeatIdByStatus("Null"));
+        } catch (SQLException ex) {
+            Logger.getLogger(TestSeatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
+    }
+   
+    @Test
+    public void testWrongFindSeatIdByStatus() throws SQLException {
+        
+        SeatService s = new SeatService(conn);
+       
+        Assertions.assertEquals(0, s.findSeatIdByStatus("BinhBung"));
+            
+        
+    }
+    
+    @Test
+    public void testsetNull() throws SQLException {
+        
+        SeatService s = new SeatService(conn);
+       
+        Assertions.assertTrue(s.setNull(2));
+            
+        
+    }
+   
+    @Test
+    public void tesWrongIDSetNull() throws SQLException {
+        
+        SeatService s = new SeatService(conn);
+       
+        Assertions.assertFalse(s.setNull(-15));
+            
+        
+    }
     
 }

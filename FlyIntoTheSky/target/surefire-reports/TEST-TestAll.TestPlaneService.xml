@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestAll.TestSeatService" time="0.933" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestAll.TestPlaneService" time="0.919" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\kenng\AppData\Local\Temp\surefire7603091880169670956 2021-05-07T20-15-28_857-jvmRun1 surefire4805127511750652288tmp surefire_010064149088189986085tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\kenng\AppData\Local\Temp\surefire1565463189122525154 2021-05-07T20-26-17_827-jvmRun1 surefire10183306204220626995tmp surefire_05034775825066463794tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="TestAll.TestSeatService"/>
+    <property name="test" value="TestAll.TestPlaneService"/>
     <property name="surefire.test.class.path" value="D:\kiemThu\yeye\projectKTPM\FlyIntoTheSky\target\test-classes;C:\Users\kenng\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\kenng\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\kenng\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\kenng\.m2\repository\mysql\mysql-connector-java\8.0.23\mysql-connector-java-8.0.23.jar;C:\Users\kenng\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;C:\Users\kenng\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0-M1\junit-jupiter-engine-5.8.0-M1.jar;C:\Users\kenng\.m2\repository\org\apiguardian\apiguardian-api\1.1.1\apiguardian-api-1.1.1.jar;C:\Users\kenng\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0-M1\junit-platform-engine-1.8.0-M1.jar;C:\Users\kenng\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\kenng\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0-M1\junit-platform-commons-1.8.0-M1.jar;C:\Users\kenng\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.0-M1\junit-jupiter-api-5.8.0-M1.jar;C:\Users\kenng\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.4.20\kotlin-stdlib-jdk8-1.4.20.jar;C:\Users\kenng\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.20\kotlin-stdlib-1.4.20.jar;C:\Users\kenng\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.20\kotlin-stdlib-common-1.4.20.jar;C:\Users\kenng\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\kenng\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.4.20\kotlin-stdlib-jdk7-1.4.20.jar;C:\Users\kenng\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.0-M1\junit-jupiter-params-5.8.0-M1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\kenng"/>
@@ -58,12 +58,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="testGetSeatById" classname="TestAll.TestSeatService" time="0.068"/>
-  <testcase name="testWrongFindSeatIdByStatus" classname="TestAll.TestSeatService" time="0.002"/>
-  <testcase name="testFindSeatIdByStatus" classname="TestAll.TestSeatService" time="0.016"/>
-  <testcase name="testNullGetSeatById" classname="TestAll.TestSeatService" time="0"/>
-  <testcase name="testsetNull" classname="TestAll.TestSeatService" time="0"/>
-  <testcase name="testWrongCheckNullByPlaneId" classname="TestAll.TestSeatService" time="0"/>
-  <testcase name="testCheckNullByPlaneId" classname="TestAll.TestSeatService" time="0.012"/>
-  <testcase name="tesWrongIDSetNull" classname="TestAll.TestSeatService" time="0"/>
+  <testcase name="testGetTotalSeatByID" classname="TestAll.TestPlaneService" time="0.078">
+    <error message="Before start of result set" type="java.sql.SQLException">java.sql.SQLException: Before start of result set
+	at com.mycompany.flyintothesky/TestAll.TestPlaneService.testGetTotalSeatByID(TestPlaneService.java:49)
+</error>
+  </testcase>
 </testsuite>

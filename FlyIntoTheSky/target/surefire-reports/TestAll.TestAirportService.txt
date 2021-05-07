@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestAll.TestAirportService
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.995 s <<< FAILURE! - in TestAll.TestAirportService
+testGetLocatetById  Time elapsed: 0.085 s  <<< ERROR!
+java.sql.SQLException: Before start of result set
+	at com.mycompany.flyintothesky/TestAll.TestAirportService.testGetLocatetById(TestAirportService.java:53)
+
