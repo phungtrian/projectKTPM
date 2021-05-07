@@ -8,7 +8,10 @@ package com.mycompany.flyintothesky;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
@@ -16,6 +19,13 @@ import javafx.fxml.Initializable;
  */
 public class BookingController implements Initializable {
 
+
+    @FXML
+    private Button btBack;
+    @FXML
+    private TextField txtPhone;
+    @FXML
+    private Button btSearch;
     /**
      * Initializes the controller class.
      */
@@ -24,4 +34,8 @@ public class BookingController implements Initializable {
         // TODO
     }    
     
+    @FXML
+    private void switchToTicket(ActionEvent event) {
+    }
+
 }

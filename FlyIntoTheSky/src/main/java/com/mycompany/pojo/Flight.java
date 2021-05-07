@@ -5,7 +5,6 @@
  */
 package com.mycompany.pojo;
 
-import java.math.BigDecimal;
 /**
  *
  * @author phung

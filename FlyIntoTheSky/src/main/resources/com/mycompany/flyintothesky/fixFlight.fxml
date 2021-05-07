@@ -33,7 +33,7 @@
       </HBox>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="92.0" text="ID:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="92.0" text="ID" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </TextField>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="106.0" text="Day:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="106.0" text="Day" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
@@ -57,7 +57,7 @@
       </HBox>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="90.0" text="Origin:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="90.0" text="Origin" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
@@ -67,7 +67,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </ComboBox>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="135.0" text="Destination:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="135.0" text="Destination" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
