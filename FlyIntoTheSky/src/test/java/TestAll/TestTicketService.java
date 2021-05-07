@@ -80,37 +80,37 @@ public class TestTicketService {
         });
     }
     
-    @Test
-    public void testGetIdByCusId() {
-        try {
-            TicketService s = new TicketService(conn);
-            
-            Assertions.assertEquals(s.getIdByCusId(2), 81);
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    @Test
-    public void testUnknownIDGetIdByCusId() {
-        try {
-            TicketService s = new TicketService(conn);
-            
-            Assertions.assertEquals(s.getIdByCusId(234), -1);
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    @Test
-    public void testTimeoutGetIdByCusId() {
-        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
-            TicketService s = new TicketService(conn);
-            int ticket = s.getIdByCusId(0);
-        });
-    }
+//    @Test
+//    public void testGetIdByCusId() {
+//        try {
+//            TicketService s = new TicketService(conn);
+//            
+//            Assertions.assertEquals(s.getIdByCusId(2), 81);
+//           
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    @Test
+//    public void testUnknownIDGetIdByCusId() {
+//        try {
+//            TicketService s = new TicketService(conn);
+//            
+//            Assertions.assertEquals(s.getIdByCusId(234), -1);
+//           
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TestTicketService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    @Test
+//    public void testTimeoutGetIdByCusId() {
+//        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1), () -> {
+//            TicketService s = new TicketService(conn);
+//            int ticket = s.getIdByCusId(0);
+//        });
+//    }
     
     @Test
     public void testCountTicketByFlightId() {

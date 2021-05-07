@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,7 +48,7 @@ public class TicketService {
         }
         return t;
     }
-    
+
     public int getCusId(int ticketId){
         try {
             String sql = "SELECT * FROM flightdb.ticket WHERE id = ?;";
@@ -62,15 +64,25 @@ public class TicketService {
         return -1;
     }
     
-    public int getIdByCusId(int id) throws SQLException{
+    public List<Ticket> getTicketByCusId(int id) throws SQLException{
         String sql = "SELECT * FROM flightdb.ticket WHERE  customer_id = ?;";
         PreparedStatement stm = this.conn.prepareStatement(sql);
         stm.setInt(1, id);
         
+        List<Ticket> tickets = new ArrayList<>();
         ResultSet rs = stm.executeQuery();
-        if(rs.next())
-            return rs.getInt("id");
-        return -1;
+        
+        while(rs.next()){
+            Ticket t = new Ticket();
+            t.setId(rs.getInt("id"));
+            t.setFlightID(rs.getInt("flight_id"));
+            t.setCustomerId(rs.getInt("customer_id"));
+            t.setSeatID(rs.getInt("seat_id"));
+            t.setPrice(rs.getBigDecimal("price"));
+            t.setDateOfIssue(rs.getString("date_of_issue"));
+            tickets.add(t);
+        }
+        return tickets;
     }
     
     

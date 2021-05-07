@@ -5,8 +5,7 @@
  */
 package com.mycompany.services;
 
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
