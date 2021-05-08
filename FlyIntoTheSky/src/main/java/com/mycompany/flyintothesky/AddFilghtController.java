@@ -109,5 +109,5 @@ public class AddFilghtController implements Initializable {
        } catch (SQLException ex) {
            Logger.getLogger(AddFilghtController.class.getName()).log(Level.SEVERE, null, ex);
        }
-       } 
+    } 
 }

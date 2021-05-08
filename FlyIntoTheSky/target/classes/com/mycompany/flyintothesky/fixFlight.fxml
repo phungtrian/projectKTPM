@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -14,7 +13,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.FixFlightController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="84.0" prefWidth="600.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#switchToManage" prefHeight="64.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
                <font>
@@ -24,7 +23,7 @@
                   <Insets top="10.0" />
                </HBox.margin>
             </Button>
-            <Label alignment="CENTER" prefHeight="82.0" prefWidth="466.0" text="Fix flight" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="453.0" text="Fix flight" textFill="#2d3b99">
                <font>
                   <Font name="System Bold" size="54.0" />
                </font>
@@ -33,22 +32,22 @@
       </HBox>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="92.0" text="ID:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="92.0" text="ID" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <TextField prefHeight="32.0" prefWidth="171.0">
+            <TextField fx:id="txtId" prefHeight="32.0" prefWidth="171.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
             </TextField>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="106.0" text="Day:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="48.0" prefWidth="106.0" text="Day" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <DatePicker prefHeight="32.0" prefWidth="196.0">
+            <DatePicker fx:id="date" onAction="#seletedDate" prefHeight="32.0" prefWidth="171.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
@@ -57,36 +56,58 @@
       </HBox>
       <HBox prefHeight="57.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="90.0" text="Origin:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="90.0" text="Origin" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="32.0" prefWidth="165.0">
+            <ComboBox fx:id="cbNoidi" prefHeight="32.0" prefWidth="171.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
             </ComboBox>
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="135.0" text="Destination:" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="135.0" text="Destination" textFill="#2d3b99">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="32.0" prefWidth="181.0">
+            <ComboBox fx:id="cbNoiden" prefHeight="32.0" prefWidth="171.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
             </ComboBox>
          </children>
       </HBox>
-      <TableView prefHeight="153.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
-        <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="147.20001220703125" text="Origin" />
-            <TableColumn prefWidth="153.5999755859375" text="Destination" />
-            <TableColumn prefWidth="121.60003662109375" text="Day" />
-            <TableColumn prefWidth="104.0" />
-        </columns>
-      </TableView>
+      <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="541.0">
+         <children>
+            <Label alignment="CENTER" text="Time" textFill="#2b3d99">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTime" prefHeight="32.0" prefWidth="171.0" />
+            <Label text="Plane identify" textFill="#2d3b99">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbPlaneid" prefHeight="32.0" prefWidth="171.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="597.0">
+         <children>
+            <Button fx:id="btSearch" mnemonicParsing="false" prefHeight="41.0" prefWidth="97.0" text="Search" textFill="#2d3b99">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="btUpdate" alignment="CENTER" mnemonicParsing="false" onAction="#updateFlight" prefHeight="41.0" prefWidth="100.0" text="Update" textAlignment="CENTER" textFill="#2d3b99">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="tbFlights" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>
