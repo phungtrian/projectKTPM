@@ -165,6 +165,4 @@ public class Flight {
         this.planeId = planeId;
     }
 
- 
-    
 }

@@ -66,4 +66,38 @@ public class AirportService {
         
         return rs.getInt("id");
     }
+    
+    public Airport getAirportByLocate(String locat) throws SQLException {
+        String q = "SELECT * FROM flightdb.airport WHERE location = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(q);
+        stm.setString(1, locat);
+        
+        ResultSet rs = stm.executeQuery();
+        Airport a = null;
+        
+        while (rs.next()) {
+            a = new Airport();
+            a.setLocation(rs.getString("location"));
+            break;
+        }
+        return a;
+    }
+    
+    public Airport getAirportById(int flightId) throws SQLException {
+        String q = "SELECT * FROM airport WHERE id=?;";
+        PreparedStatement stm = this.conn.prepareStatement(q);
+        stm.setInt(1, flightId);
+        
+        ResultSet rs = stm.executeQuery();
+        
+        Airport a = null;
+        
+        while (rs.next()) {
+            a = new Airport();
+            a.setLocation(rs.getString("location"));
+            break;
+        }
+        
+        return a;
+    }
 }
