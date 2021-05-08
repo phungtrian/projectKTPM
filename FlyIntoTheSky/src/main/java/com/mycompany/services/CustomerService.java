@@ -100,8 +100,8 @@ public class CustomerService {
             PreparedStatement stm = this.conn.prepareStatement(sql);
             
             ResultSet rs = stm.executeQuery();
-            
-            return rs.getString("phone");
+            if(rs.next())
+                return rs.getString("phone");
         } catch (SQLException ex) {
             Logger.getLogger(CustomerService.class.getName()).log(Level.SEVERE, null, ex);
         }

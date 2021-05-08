@@ -104,7 +104,7 @@ public class ConfirmController implements Initializable {
                             .showAndWait().ifPresent(bt -> {
                                 if (bt == ButtonType.OK) {
                                     try {
-                                        App.setRoot("Payment");
+                                        App.setRoot("payment");
                                     } catch (IOException ex) {
                                         Logger.getLogger(ConfirmController.class.getName()).log(Level.SEVERE, null, ex);
                                     }

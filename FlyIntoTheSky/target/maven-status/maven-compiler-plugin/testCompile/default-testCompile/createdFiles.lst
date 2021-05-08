@@ -1,0 +1,6 @@
+TestAll\TestSeatService.class
+TestAll\TestFlightService.class
+TestAll\TestPlaneService.class
+TestAll\TestTicketService.class
+TestAll\TestAirportService.class
+TestAll\TestCustomerService.class

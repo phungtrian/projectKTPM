@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestAll.TestCustomerService" time="0.529" tests="5" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestAll.TestTicketService" time="0.066" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,17 +57,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="testUnknownPhoneGetCusIdByPhone" classname="TestAll.TestCustomerService" time="0.008"/>
-  <testcase name="testWrongIDGetCusPhoneById" classname="TestAll.TestCustomerService" time="0.505"/>
-  <testcase name="testWrongIDGetCusById" classname="TestAll.TestCustomerService" time="0"/>
-  <testcase name="testGetCusById" classname="TestAll.TestCustomerService" time="0.001">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.mycompany.flyintothesky/TestAll.TestCustomerService.testGetCusById(TestCustomerService.java:54)
-]]></failure>
-  </testcase>
-  <testcase name="testGetCusIdByPhone" classname="TestAll.TestCustomerService" time="0">
-    <failure message="expected: &lt;3&gt; but was: &lt;-1&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <3> but was: <-1>
-	at com.mycompany.flyintothesky/TestAll.TestCustomerService.testGetCusIdByPhone(TestCustomerService.java:70)
-]]></failure>
-  </testcase>
+  <testcase name="testFalseChangeStatus" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testFindTicketIdByStatus" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testFalseFindTicketIdByStatus" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testTrueAddCusInfo" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testUnknownIDGetTicketByID" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testNotCorrectIDCountTicketByFlightId" classname="TestAll.TestTicketService" time="0.027"/>
+  <testcase name="testCheckNullByFlightId" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testCountTicketByFlightId" classname="TestAll.TestTicketService" time="0.037"/>
+  <testcase name="testTimeoutGetTicketByID" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testTrueChangeStatus" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testFalseAddCusInfo" classname="TestAll.TestTicketService" time="0"/>
+  <testcase name="testIDGetTicketByID" classname="TestAll.TestTicketService" time="0"/>
 </testsuite>
