@@ -58,9 +58,22 @@ public class SearchController implements Initializable{
     
     @FXML
     private void searchFlight(ActionEvent event) {
+        if(cbNoidi.getSelectionModel().getSelectedItem().getLocation() == null){
+            loadData("empty"
+                    , cbNoiden.getSelectionModel().getSelectedItem().getLocation()
+                    , "null");
+        }
+        else if(cbNoiden.getSelectionModel().getSelectedItem().getLocation() == "null"){
+            loadData( cbNoidi.getSelectionModel().getSelectedItem().getLocation(), "null"
+                    , "null");
+        }
+//        else if(date.getValue().toString())){
+//            loadData( cbNoidi.getSelectionModel().getSelectedItem().getLocation(), null
+//                    , null);
+//        }
         loadData(cbNoidi.getSelectionModel().getSelectedItem().getLocation()
-                , cbNoiden.getSelectionModel().getSelectedItem().getLocation()
-                , date.getValue().toString());
+                    , cbNoiden.getSelectionModel().getSelectedItem().getLocation()
+                    , date.getValue().toString());
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,11 +95,21 @@ public class SearchController implements Initializable{
     }
     private void loadData(String ori, String des, String d) {
         try {
-            
             Connection conn = JdbcUtils.getConn();
             FlightService f = new FlightService(conn);
             
-            tbFlights.setItems(FXCollections.observableList(f.FindFlightLocation(ori, des, d)));
+            if(des == "empty"){
+                
+                tbFlights.setItems(FXCollections.observableList(f.findFlightByOrigin(ori)));
+            }
+            else if(ori == "empty" && d == "empty"){
+                 tbFlights.setItems(FXCollections.observableList(f.findFlightByDestination(des)));
+            }
+            else if((ori.equals("empty") == true) && (des.equals("empty") == true)){
+                 tbFlights.setItems(FXCollections.observableList(f.findFlightByDay(d)));
+            }
+            else
+                tbFlights.setItems(FXCollections.observableList(f.FindFlightLocation(ori, des, d)));
 
             conn.close();
         } catch (SQLException ex) {

@@ -12,7 +12,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -96,4 +100,107 @@ public class FlightService {
        }
         return flights;
     }
+    public List<Flight> FindFlightLocation(String ori, String des) throws SQLException
+    {
+        String sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND destination = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, ori);
+        stm.setString(2, des);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+            LocalDate localDate = LocalDate.parse(rs.getString("day"),
+            DateTimeFormatter.ISO_LOCAL_DATE);
+            LocalDate toDay = LocalDate.now();
+            if(localDate.isBefore(toDay)){
+                rs.next();
+            }
+            else{
+                Flight f = new Flight();
+                f.setId(rs.getInt("id"));
+                f.setOrigin(rs.getString("origin"));
+                f.setDestination(rs.getString("destination"));
+                f.setDay(rs.getString("day"));
+                f.setTime(rs.getString("time"));
+                f.setPlaneId(rs.getInt("plane_id"));
+
+                flights.add(f);
+            }
+       }
+        return flights;
+    }
+    public List<Flight> findFlightByOrigin(String ori) throws SQLException
+    {
+        String sql = "SELECT * FROM flightdb.flight WHERE origin = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, ori);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+           Flight f = new Flight();
+           f.setId(rs.getInt("id"));
+           f.setOrigin(rs.getString("origin"));
+           f.setDestination(rs.getString("destination"));
+           f.setDay(rs.getString("day"));
+           f.setTime(rs.getString("time"));
+           f.setPlaneId(rs.getInt("plane_id"));
+
+           flights.add(f);
+       }
+        return flights;
+    }
+    public List<Flight> findFlightByDestination(String des) throws SQLException
+    {
+        String sql = "SELECT * FROM flightdb.flight WHERE destination = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, des);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {
+            LocalDate localDate = LocalDate.parse(rs.getString("day"),
+            DateTimeFormatter.ISO_LOCAL_DATE);
+            LocalDate toDay = LocalDate.now();
+            if(localDate.isBefore(toDay)){
+                rs.next();
+            }
+            else{
+                Flight f = new Flight();
+                f.setId(rs.getInt("id"));
+                f.setOrigin(rs.getString("origin"));
+                f.setDestination(rs.getString("destination"));
+                f.setDay(rs.getString("day"));
+                f.setTime(rs.getString("time"));
+                f.setPlaneId(rs.getInt("plane_id"));
+
+                flights.add(f);
+            }
+       }
+        return flights;
+    }public List<Flight> findFlightByDay(String day) throws SQLException
+    {
+        String sql = "SELECT * FROM flightdb.flight WHERE day = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setString(1, day);
+        ResultSet rs = stm.executeQuery();
+        List<Flight> flights = new ArrayList<>();
+        while (rs.next()) 
+        {   
+           
+                Flight f = new Flight();
+                f.setId(rs.getInt("id"));
+                f.setOrigin(rs.getString("origin"));
+                f.setDestination(rs.getString("destination"));
+                f.setDay(rs.getString("day"));
+                f.setTime(rs.getString("time"));
+                f.setPlaneId(rs.getInt("plane_id"));
+
+                flights.add(f);
+       }
+        return flights;
+    }
+    
+    
 }
