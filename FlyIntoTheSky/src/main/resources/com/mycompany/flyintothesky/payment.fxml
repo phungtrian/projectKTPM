@@ -2,34 +2,38 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.PaymentController">
    <children>
-      <Label alignment="CENTER" prefHeight="93.0" prefWidth="600.0" text="Payment" textFill="#2d3b99">
+      <Label alignment="CENTER" prefHeight="71.0" prefWidth="600.0" text="Payment" textFill="#2d3b99">
          <font>
             <Font name="System Bold" size="53.0" />
          </font>
       </Label>
-      <HBox prefHeight="53.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="54.0" prefWidth="182.0" text="Phone number:" textFill="#2d3b99">
-               <font>
-                  <Font size="28.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="242.0">
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </TextField>
-         </children>
-      </HBox>
+      <Label alignment="CENTER" prefHeight="35.0" prefWidth="590.0" text="Dùng MoMo scan mã QR sau để chuyển tiền" textFill="#2d3b99">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/QRCode.png" />
+         </image>
+         <VBox.margin>
+            <Insets left="200.0" top="10.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label prefHeight="63.0" prefWidth="593.0" text="Lưu ý: Quý khách vui lòng nhập đúng số tiền và ghi chú mã vé(hông ghi mất tiền gáng chịu hjhj)." textFill="#2d3b99">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="7.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>

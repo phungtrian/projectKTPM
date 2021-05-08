@@ -5,8 +5,6 @@
  */
 package com.mycompany.pojo;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 /**
  *
  * @author phung
@@ -19,13 +17,69 @@ public class Flight {
     private String time;
     private String day;
     private int planeId;
-//    public Flight(int id, int origin, int destination, String boardingTime, String day) {
-//        this.id = id;
-//        this.origin = origin;
-//        this.destination = destination;
-//        this.boardingTime = boardingTime;
-//        this.day = day;
-//    }
+    
+    
+    public double unitPrice(){
+        double price = 0;
+        switch (this.origin) {
+            case "HN":
+                switch(this.destination){
+                    case "SG":
+                        price = 1000000;
+                        break;
+                    case "DL":
+                        price = 1300000;
+                        break;
+                    case "PQ":
+                        price = 2000000;
+                        break;
+                    default:
+                }   break;
+            case "SG":
+                switch(this.destination){
+                    case "HN":
+                        price = 900000;
+                        break;
+                    case "DL":
+                        price = 700000;
+                        break;
+                    case "PQ":
+                        price = 1000000;
+                        break;
+                    default:
+                }   break;
+            case "DL":
+                switch(this.destination){
+                    case "HN":
+                        price = 1500000;
+                        break;
+                    case "SG":
+                        price = 800000;
+                        break;
+                    case "PQ":
+                        price = 1200000;
+                        break;
+                    default:
+                }   break;
+            case "PQ":
+                switch(this.destination){
+                    case "HN":
+                        price = 2200000;
+                        break;
+                    case "DL":
+                        price = 1700000;
+                        break;
+                    case "SG":
+                        price = 1000000;
+                        break;
+                    default:
+                }   break;
+            default:
+                break;
+        }
+        return price;
+        }
+   
 
     /**
      * @return the id

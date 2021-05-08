@@ -15,13 +15,16 @@ import com.mycompany.services.PlaneService;
 import com.mycompany.services.SeatService;
 import com.mycompany.services.TicketService;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -74,6 +77,15 @@ public class AddFilghtController implements Initializable {
     }    
     
     @FXML
+    private void seletedDate(ActionEvent event){
+        LocalDate toDay = LocalDate.now();
+        LocalDate input = date.getValue();
+        if(input.isBefore(toDay)){
+            Utils.getBox("Please pick a day from future!!!", Alert.AlertType.INFORMATION).show();
+            date.setValue(toDay);
+        }        
+    }
+    @FXML
     private void switchToManage() throws IOException{
         App.setRoot("manage");
     }
@@ -94,9 +106,22 @@ public class AddFilghtController implements Initializable {
            fl.setTime(time.getText());
            if(f.addFilght(fl))
            {
+               double price = 0;
+               switch(fl.getPlaneId()){
+                    case 1:
+                        price = fl.unitPrice() * 1.5;
+                        break;
+                    case 2:
+                        price = fl.unitPrice() * 1.2;
+                        break;
+                    case 3:
+                        price = fl.unitPrice() * 2.0;
+                        break;
+                default:
+            }
                int seatId = s.checkNullByPlaneId(fl.getPlaneId());
                while(seatId != -1){
-                   t.addTicket(fl.getId(), seatId);
+                   t.addTicket(fl.getId(), seatId, BigDecimal.valueOf(price));
                    s.changeStatus(seatId, "Creating");
                    seatId = s.checkNullByPlaneId(fl.getPlaneId());
                }

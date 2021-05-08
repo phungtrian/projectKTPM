@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,15 +43,19 @@ public class AirportService {
         return airports;
     }
     
-    public String getLocatetById(int flightId) throws SQLException {
-        String q = "SELECT * FROM flightdb.airport WHERE id=?;";
-        PreparedStatement stm = this.conn.prepareStatement(q);
-        stm.setInt(1, flightId);
-        
-        ResultSet rs = stm.executeQuery();
-        String a = rs.getString("location");
-        
-        return a;
+    public String getLocatetById(int flightId){
+        try {
+            String q = "SELECT * FROM flightdb.airport WHERE id = ?;";
+            PreparedStatement stm = this.conn.prepareStatement(q);
+            stm.setInt(1, flightId);
+            
+            ResultSet rs = stm.executeQuery();
+            if(rs.next())
+                return rs.getString("location");
+        } catch (SQLException ex) {
+            Logger.getLogger(AirportService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public int getAirportID(String locat) throws SQLException{

@@ -8,7 +8,6 @@ package com.mycompany.flyintothesky;
 import com.mycompany.pojo.Customer;
 import com.mycompany.services.CustomerService;
 import com.mycompany.services.JdbcUtils;
-import com.mycompany.services.SeatService;
 import com.mycompany.services.TicketService;
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
 
 /**
  * FXML Controller class
@@ -58,13 +56,11 @@ public class AddInfoController{
             cus.setName(name.getText());
             cus.setPhone(phone.getText());
             cus.setId(c.createID());
-            
-            int ticketId = t.findTicketIdByStatus("Booking");
-            if(c.addCus(cus) == true ){   
-                if(t.addCusInfo(ticketId, cus.getId())){
-                    t.changeStatus(ticketId, "Added");
-                    App.setRoot("confirm");
-                }
+                
+            if(c.addCus(cus) == true ){
+                SearchController s = new SearchController();
+                if(t.addCusInfo(s.T.getId(), cus.getId()))
+                    App.setRoot("confirm"); 
             }
             else{
                 Utils.getBox("CAN'T ADD INFO!!!", Alert.AlertType.ERROR).show();
