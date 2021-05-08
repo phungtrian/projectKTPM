@@ -8,6 +8,7 @@ package com.mycompany.flyintothesky;
 import com.mycompany.pojo.Airport;
 import com.mycompany.pojo.Flight;
 import com.mycompany.pojo.Plane;
+import com.mycompany.pojo.Seat;
 import com.mycompany.services.AirportService;
 import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -119,11 +121,10 @@ public class AddFilghtController implements Initializable {
                         break;
                 default:
             }
-               int seatId = s.checkNullByPlaneId(fl.getPlaneId());
-               while(seatId != -1){
-                   t.addTicket(fl.getId(), seatId, BigDecimal.valueOf(price));
-                   s.changeStatus(seatId, "Creating");
-                   seatId = s.checkNullByPlaneId(fl.getPlaneId());
+               List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
+               for(int i = 0; i < seats.size(); i++){
+                   Seat seat = seats.get(i);
+                   t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
                }
                if(s.setNull(fl.getPlaneId()))
                     Utils.getBox("SUCCESSFUL!!!", Alert.AlertType.INFORMATION).show();
