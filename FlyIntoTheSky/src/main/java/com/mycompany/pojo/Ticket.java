@@ -15,7 +15,6 @@ public class Ticket extends Seat{
     private int id;
     private String dateOfIssue;
     private BigDecimal price;
-    private int agentID;
     private int customerId;
     private int flightID;
     private int seatID;
@@ -50,34 +49,6 @@ public class Ticket extends Seat{
         this.price = price;
     }
 
-  
-    /**
-     * @return the agentID
-     */
-    public int getAgentID() {
-        return agentID;
-    }
-
-    /**
-     * @param agentID the agentID to set
-     */
-    public void setAgentID(int agentID) {
-        this.agentID = agentID;
-    }
-
-    /**
-     * @return the customerId
-     */
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    /**
-     * @param customerId the customerId to set
-     */
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
 
     /**
      * @return the flightID
@@ -133,6 +104,20 @@ public class Ticket extends Seat{
      */
     public void setDateOfIssue(String dateOfIssue) {
         this.dateOfIssue = dateOfIssue;
+    }
+
+    /**
+     * @return the customerID
+     */
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    /**
+     * @param customerID the customerID to set
+     */
+    public void setCustomerID(int customerID) {
+        this.customerId = customerID;
     }
 
 }

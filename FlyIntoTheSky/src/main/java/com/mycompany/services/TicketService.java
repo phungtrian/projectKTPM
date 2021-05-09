@@ -39,8 +39,7 @@ public class TicketService {
         while(rs.next()){
             t.setId(rs.getInt("id"));
             t.setPrice(rs.getBigDecimal("price"));
-            t.setAgentID(rs.getInt("agent_id"));
-            t.setCustomerId(rs.getInt("customer_id"));
+            t.setCustomerID(rs.getInt("customer_id"));
             t.setFlightID(rs.getInt("flight_id"));
             t.setSeatID(rs.getInt("seat_id"));
             t.setStatus(rs.getString("status"));
@@ -76,7 +75,7 @@ public class TicketService {
             Ticket t = new Ticket();
             t.setId(rs.getInt("id"));
             t.setFlightID(rs.getInt("flight_id"));
-            t.setCustomerId(rs.getInt("customer_id"));
+            t.setCustomerID(rs.getInt("customer_id"));
             t.setSeatID(rs.getInt("seat_id"));
             t.setPrice(rs.getBigDecimal("price"));
             t.setDateOfIssue(rs.getString("date_of_issue"));
@@ -198,7 +197,7 @@ public class TicketService {
         return false;
     }
     
-    public boolean DeleteTicket(int ticketId){ 
+    public boolean CancelTicket(int ticketId){ 
         try {
             Connection conn = JdbcUtils.getConn();
             String sql = "DELETE FROM flightdb.ticket WHERE id = ?";

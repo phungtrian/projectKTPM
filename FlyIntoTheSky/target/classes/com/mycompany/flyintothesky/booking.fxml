@@ -48,7 +48,7 @@
             </TextField>
          </children>
       </HBox>
-      <Button fx:id="btSearch" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 15;" text="Search" textFill="WHITE">
+      <Button fx:id="btSearch" mnemonicParsing="false" onAction="#searchTicket" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 15;" text="Search" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -56,7 +56,7 @@
             <Insets left="230.0" />
          </VBox.margin>
       </Button>
-      <TableView prefHeight="191.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
+      <TableView fx:id="tbTickets" prefHeight="191.0" prefWidth="600.0" style="-fx-background-color: lightblue;">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

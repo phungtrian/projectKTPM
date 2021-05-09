@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -26,7 +27,7 @@ import javafx.scene.control.TextField;
  *
  * @author LENOVO
  */
-public class AddInfoController{
+public class AddInfoController implements Initializable{
     @FXML
     private TextField name;
     @FXML
@@ -38,6 +39,7 @@ public class AddInfoController{
     
     
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
 
     @FXML
@@ -56,9 +58,11 @@ public class AddInfoController{
             cus.setName(name.getText());
             cus.setPhone(phone.getText());
             cus.setId(c.createID());
-                
-            if(c.addCus(cus) == true ){
-                SearchController s = new SearchController();
+            
+            SearchController s = new SearchController();
+            
+            if(c.addCus(cus) == true) {
+//                SearchController s = new SearchController();
                 if(t.addCusInfo(s.T.getId(), cus.getId()))
                     App.setRoot("confirm"); 
             }

@@ -276,8 +276,7 @@ public class FixFlightController implements Initializable{
                                     Logger.getLogger(FixFlightController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
-                        });
-
+                });
             });
 
             TableCell cell = new TableCell();

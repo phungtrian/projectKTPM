@@ -124,7 +124,7 @@ public class SearchController implements Initializable{
                     if(t.checkNullByFlightId(f.getId()) != -1)
                         App.setRoot("addInfo");
                     else
-                        Utils.getBox("Het ve goi liu liu!!!", Alert.AlertType.ERROR).show();
+                        Utils.getBox("Tickets are running out liu liu!!!", Alert.AlertType.ERROR).show();
                     conn.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, ex);

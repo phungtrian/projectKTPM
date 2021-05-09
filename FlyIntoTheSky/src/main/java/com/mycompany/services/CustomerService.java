@@ -6,10 +6,13 @@
 package com.mycompany.services;
 
 import com.mycompany.pojo.Customer;
+import com.mycompany.pojo.Ticket;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +49,7 @@ public class CustomerService {
         stm.setString(1, p);
         
        ResultSet rs = stm.executeQuery();
+       
        if(rs.next())
             return rs.getInt("id");
        return -1;
@@ -107,6 +111,48 @@ public class CustomerService {
         }
         return null;
     }
+
+    public String getPhoneByCusId(int id) throws SQLException {
+        String q = "SELECT phone from flightdb.customer WHERE id = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(q);
+        stm.setInt(1, id);
+        
+        ResultSet rs = stm.executeQuery();
+        String phone = new String();
+        while (rs.next()) {
+            Customer c = new Customer();
+            c.setPhone(rs.getString("phone"));
+            
+            
+            
+        }
+        return phone;
+        
+           
+    }
+        
+        public List<Ticket> getTicketByCusId(int id) throws SQLException{
+        String sql = "SELECT * FROM flightdb.ticket WHERE  customer_id = ?;";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setInt(1, id);
+        
+        List<Ticket> tickets = new ArrayList<>();
+        ResultSet rs = stm.executeQuery();
+        
+        while(rs.next()){
+            Ticket t = new Ticket();
+            t.setId(rs.getInt("id"));
+            t.setFlightID(rs.getInt("flight_id"));
+            t.setCustomerID(rs.getInt("customer_id"));
+            t.setSeatID(rs.getInt("seat_id"));
+            t.setPrice(rs.getBigDecimal("price"));
+            t.setDateOfIssue(rs.getString("date_of_issue"));
+            tickets.add(t);
+        }
+        return tickets;
+    }
 }
+    
+
         
 
