@@ -78,9 +78,7 @@ public class SearchController implements Initializable{
             Utils.getBox("PLEASE ENTER THE FLIGHT INFORMATION WHICH YOU WANT TO SEARCH!!!", Alert.AlertType.WARNING).show();
         else
             loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), date.getValue().toString());
-//        loadData(cbNoidi.getSelectionModel().getSelectedItem().toString()
-//                    , cbNoiden.getValue().toString()
-//                    , date.getValue().toString());
+
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

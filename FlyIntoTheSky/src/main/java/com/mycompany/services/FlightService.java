@@ -63,16 +63,18 @@ public class FlightService {
         ResultSet rs = stm.executeQuery();
         Flight f = new Flight();
         
-        while(rs.next()){
+        if(rs.next()){
             f.setId(rs.getInt("id"));
             f.setOrigin(rs.getString("origin"));
             f.setDestination(rs.getString("destination"));
             f.setDay(rs.getString("day"));
             f.setTime(rs.getString("time"));
             f.setPlaneId(rs.getInt("plane_id"));
+        
+            return f;
         }
-        return f;
 
+        return null;
     }
     public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
     {

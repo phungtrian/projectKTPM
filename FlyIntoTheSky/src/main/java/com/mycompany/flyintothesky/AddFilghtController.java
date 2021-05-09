@@ -91,6 +91,7 @@ public class AddFilghtController implements Initializable {
     private void switchToManage() throws IOException{
         App.setRoot("manage");
     }
+    
     @FXML
     private void addFlight() throws IOException{
        try {
@@ -99,6 +100,14 @@ public class AddFilghtController implements Initializable {
            TicketService t = new TicketService(conn);
            SeatService s = new SeatService(conn);
            
+           if(id.getText() == null || cbPlane.getValue() == null || cbOrigin.getValue() == null|| cbDestination.getValue() == null
+                   || date.getValue() == null || time.getText() == null)
+               Utils.getBox("PLEASE ENTER ALL INFORMATION!!!", Alert.AlertType.ERROR).show();
+           else if( f.getFlightById(Integer.parseInt(id.getText())) != null){
+               Utils.getBox("FLIGHT ID HAVE ALREADY EXISTED!!! ", Alert.AlertType.ERROR).show();
+           }
+           else{ 
+           
            Flight fl = new Flight();
            fl.setId(Integer.parseInt(id.getText()));
            fl.setPlaneId(Integer.parseInt(cbPlane.getValue().toString()));
@@ -106,6 +115,7 @@ public class AddFilghtController implements Initializable {
            fl.setDestination(cbDestination.getValue().toString());
            fl.setDay(date.getValue().toString());
            fl.setTime(time.getText());
+           
            if(f.addFilght(fl))
            {
                double price = 0;
@@ -131,7 +141,9 @@ public class AddFilghtController implements Initializable {
            }
            else
                Utils.getBox("CAN NOT CREATE FLIGHT!!!", Alert.AlertType.ERROR).show();
+           
            conn.close();
+           }
        } catch (SQLException ex) {
            Logger.getLogger(AddFilghtController.class.getName()).log(Level.SEVERE, null, ex);
        }
