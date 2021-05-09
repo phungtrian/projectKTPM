@@ -76,12 +76,53 @@ public class FlightService {
     }
     public List<Flight> FindFlightLocation(String ori, String des, String d) throws SQLException
     {
-        String sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND destination = ? AND day = ?;";
-        PreparedStatement stm = this.conn.prepareStatement(sql);
-        
-        stm.setString(1, ori);
-        stm.setString(2, des);
-        stm.setString(3, d);
+        String sql = "";
+        PreparedStatement stm;
+        if( ori == null){
+            if( des == null){
+                sql = "SELECT * FROM flightdb.flight WHERE day = ?;";
+                stm = this.conn.prepareStatement(sql);
+                stm.setString(1, d);
+            }
+            else if( d == null){
+                sql = "SELECT * FROM flightdb.flight WHERE destination = ?;";
+                stm = this.conn.prepareStatement(sql);
+                stm.setString(1, des);
+            }
+            else{
+                sql = "SELECT * FROM flightdb.flight WHERE destination = ? AND day = ?;";
+                stm = this.conn.prepareStatement(sql);
+                stm.setString(1, des);
+                stm.setString(2, d);
+            }   
+        }
+        else if(des == null){
+             if(d == null){
+                sql = "SELECT * FROM flightdb.flight WHERE origin = ?;";
+                stm = this.conn.prepareStatement(sql);
+                stm.setString(1, ori);
+             }
+             else{
+                sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND day = ?;";
+                stm = this.conn.prepareStatement(sql);
+                stm.setString(1, ori);
+                stm.setString(2, d);
+             }     
+        }
+        else if(d == null){
+            sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND destination = ?;";
+            stm = this.conn.prepareStatement(sql);
+            stm.setString(1, ori);
+            stm.setString(2, des);
+        }
+    
+        else{
+            sql = "SELECT * FROM flightdb.flight WHERE origin = ? AND destination = ? AND day = ?;";
+            stm = this.conn.prepareStatement(sql);
+            stm.setString(1, ori);
+            stm.setString(2, des);
+            stm.setString(3, d);
+                }
         ResultSet rs = stm.executeQuery();
         List<Flight> flights = new ArrayList<>();
         while (rs.next()) 
