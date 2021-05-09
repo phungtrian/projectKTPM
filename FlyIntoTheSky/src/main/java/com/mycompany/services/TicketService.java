@@ -212,4 +212,19 @@ public class TicketService {
         }
         return false;
     }
+    public boolean deleteTicketByFlightId(int flightId){ 
+        try {
+            Connection conn = JdbcUtils.getConn();
+            String sql = "DELETE FROM flightdb.ticket WHERE flight_id = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            
+            stm.setInt(1,flightId);
+            
+            int row = stm.executeUpdate();
+            return row > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

@@ -258,9 +258,11 @@ public class FixFlightController implements Initializable{
                                 try {
                                     TableCell cell = (TableCell) ((Button) evt.getSource()).getParent();
                                     Flight f = (Flight) cell.getTableRow().getItem();
-
+                                    
                                     Connection conn = JdbcUtils.getConn();
                                     FixflightService fs = new FixflightService(conn);
+                                    TicketService t = new TicketService(conn);
+                                    if(t.deleteTicketByFlightId(f.getId())){
                                     if (fs.deleteFlight(f.getId()) == true) {
                                         Utils.getBox("You've successfully deleted the flight!!!", Alert.AlertType.INFORMATION).show();
                                         loadData(Integer.parseInt(txtId.getText())
@@ -269,6 +271,7 @@ public class FixFlightController implements Initializable{
                                                 , date.getValue().toString()
                                                 , txtTime.getText()
                                                 , cbPlaneid.getSelectionModel().getSelectedItem().getId());
+                                        }
                                     } else {
                                         Utils.getBox("delete failed!!!", Alert.AlertType.ERROR).show();
                                     }

@@ -51,16 +51,34 @@ public class SearchController implements Initializable{
         LocalDate toDay = LocalDate.now();
         LocalDate input = date.getValue();
         if(input.isBefore(toDay)){
-            Utils.getBox("Please pick a day from future!!!", Alert.AlertType.INFORMATION).show();
+            Utils.getBox("PLEASE PICK A DAY FROM THE FUTURE!!!", Alert.AlertType.INFORMATION).show();
             date.setValue(toDay);
         }        
     }
     
     @FXML
     private void searchFlight(ActionEvent event) {
-        loadData(cbNoidi.getSelectionModel().getSelectedItem().getLocation()
-                , cbNoiden.getSelectionModel().getSelectedItem().getLocation()
-                , date.getValue().toString());
+        if(cbNoidi.getValue() == null){
+            if(cbNoiden.getValue() == null)
+                loadData(null, null, date.getValue().toString());
+            else if(date.getValue() == null)
+                loadData(null, cbNoiden.getValue().toString(), null);
+            else
+                loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), null);
+        }
+        else if(cbNoiden.getValue() == null){
+            if( date.getValue() == null)
+                loadData(cbNoidi.getValue().toString(), null, null);
+            else
+                loadData(cbNoidi.getValue().toString(), null, date.getValue().toString());
+        }
+        else if(date.getValue() == null)
+            loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), null);
+        else if(cbNoidi.getValue() == null && cbNoiden.getValue() == null && date.getValue() == null)
+            Utils.getBox("PLEASE ENTER THE FLIGHT INFORMATION WHICH YOU WANT TO SEARCH!!!", Alert.AlertType.WARNING).show();
+        else
+            loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), date.getValue().toString());
+
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,7 +100,6 @@ public class SearchController implements Initializable{
     }
     private void loadData(String ori, String des, String d) {
         try {
-            
             Connection conn = JdbcUtils.getConn();
             FlightService f = new FlightService(conn);
             

@@ -72,7 +72,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date" prefHeight="35.0" prefWidth="197.0">
+            <DatePicker fx:id="date" onAction="#seletedDate" prefHeight="35.0" prefWidth="197.0">
                <HBox.margin>
                   <Insets top="8.0" />
                </HBox.margin>

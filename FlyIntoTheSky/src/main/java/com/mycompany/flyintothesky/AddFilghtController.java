@@ -8,6 +8,7 @@ package com.mycompany.flyintothesky;
 import com.mycompany.pojo.Airport;
 import com.mycompany.pojo.Flight;
 import com.mycompany.pojo.Plane;
+import com.mycompany.pojo.Seat;
 import com.mycompany.services.AirportService;
 import com.mycompany.services.FlightService;
 import com.mycompany.services.JdbcUtils;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -89,6 +91,7 @@ public class AddFilghtController implements Initializable {
     private void switchToManage() throws IOException{
         App.setRoot("manage");
     }
+    
     @FXML
     private void addFlight() throws IOException{
        try {
@@ -97,6 +100,14 @@ public class AddFilghtController implements Initializable {
            TicketService t = new TicketService(conn);
            SeatService s = new SeatService(conn);
            
+           if(id.getText() == null || cbPlane.getValue() == null || cbOrigin.getValue() == null|| cbDestination.getValue() == null
+                   || date.getValue() == null || time.getText() == null)
+               Utils.getBox("PLEASE ENTER ALL INFORMATION!!!", Alert.AlertType.ERROR).show();
+           else if( f.getFlightById(Integer.parseInt(id.getText())) != null){
+               Utils.getBox("FLIGHT ID HAVE ALREADY EXISTED!!! ", Alert.AlertType.ERROR).show();
+           }
+           else{ 
+           
            Flight fl = new Flight();
            fl.setId(Integer.parseInt(id.getText()));
            fl.setPlaneId(Integer.parseInt(cbPlane.getValue().toString()));
@@ -104,6 +115,7 @@ public class AddFilghtController implements Initializable {
            fl.setDestination(cbDestination.getValue().toString());
            fl.setDay(date.getValue().toString());
            fl.setTime(time.getText());
+           
            if(f.addFilght(fl))
            {
                double price = 0;
@@ -119,18 +131,19 @@ public class AddFilghtController implements Initializable {
                         break;
                 default:
             }
-               int seatId = s.checkNullByPlaneId(fl.getPlaneId());
-               while(seatId != -1){
-                   t.addTicket(fl.getId(), seatId, BigDecimal.valueOf(price));
-                   s.changeStatus(seatId, "Creating");
-                   seatId = s.checkNullByPlaneId(fl.getPlaneId());
+               List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
+               for(int i = 0; i < seats.size(); i++){
+                   Seat seat = seats.get(i);
+                   t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
                }
                if(s.setNull(fl.getPlaneId()))
                     Utils.getBox("SUCCESSFUL!!!", Alert.AlertType.INFORMATION).show();
            }
            else
                Utils.getBox("CAN NOT CREATE FLIGHT!!!", Alert.AlertType.ERROR).show();
+           
            conn.close();
+           }
        } catch (SQLException ex) {
            Logger.getLogger(AddFilghtController.class.getName()).log(Level.SEVERE, null, ex);
        }

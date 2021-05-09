@@ -22,4 +22,5 @@ com\mycompany\pojo\Airport.class
 module-info.class
 com\mycompany\flight\FlightsController.class
 com\mycompany\flyintothesky\App.class
+com\mycompany\services\FixflightService.class
 com\mycompany\flyintothesky\AddFilghtController.class

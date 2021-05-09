@@ -5,9 +5,13 @@
  */
 package com.mycompany.flyintothesky;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -16,6 +20,9 @@ import javafx.fxml.Initializable;
  */
 public class PaymentController implements Initializable {
 
+    @FXML
+    private Button btHome;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +30,10 @@ public class PaymentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void switchToHome(ActionEvent event) throws IOException {
+        App.setRoot("home");
+    }
     
 }
