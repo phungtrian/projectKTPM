@@ -1,7 +1,13 @@
 
 package com.mycompany.flyintothesky;
 
+import com.mycompany.services.CustomerService;
+import com.mycompany.services.JdbcUtils;
+import com.mycompany.services.PassWordValidation;
+import com.mycompany.services.UserValidation;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -24,8 +30,12 @@ public class LoginController{
     private PasswordField pass;
     
     @FXML
-    private void switchToManage() throws IOException {
-        if(user.getText().trim().equals("root")&& pass.getText().equals("1234"))
+    private void switchToManage() throws IOException, SQLException {
+        Connection conn = JdbcUtils.getConn();
+        UserValidation uservalid = new UserValidation(conn);
+        PassWordValidation passvalid = new PassWordValidation(conn);
+        
+        if(user.getText().trim().equals("admin")&& pass.getText().equals("12345678"))
         {
             App.setRoot("manage");
         }
