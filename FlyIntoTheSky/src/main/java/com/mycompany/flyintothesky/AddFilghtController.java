@@ -106,43 +106,42 @@ public class AddFilghtController implements Initializable {
            else if( f.getFlightById(Integer.parseInt(id.getText())) != null){
                Utils.getBox("FLIGHT ID HAVE ALREADY EXISTED!!! ", Alert.AlertType.ERROR).show();
            }
-           else{ 
+           else { 
            
-           Flight fl = new Flight();
-           fl.setId(Integer.parseInt(id.getText()));
-           fl.setPlaneId(Integer.parseInt(cbPlane.getValue().toString()));
-           fl.setOrigin(cbOrigin.getValue().toString());
-           fl.setDestination(cbDestination.getValue().toString());
-           fl.setDay(date.getValue().toString());
-           fl.setTime(time.getText());
-           
-           if(f.addFilght(fl))
-           {
-               double price = 0;
-               switch(fl.getPlaneId()){
-                    case 1:
-                        price = fl.unitPrice() * 1.5;
-                        break;
-                    case 2:
-                        price = fl.unitPrice() * 1.2;
-                        break;
-                    case 3:
-                        price = fl.unitPrice() * 2.0;
-                        break;
-                default:
-            }
-               List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
-               for(int i = 0; i < seats.size(); i++){
-                   Seat seat = seats.get(i);
-                   t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
-               }
-               if(s.setNull(fl.getPlaneId()))
-                    Utils.getBox("SUCCESSFUL!!!", Alert.AlertType.INFORMATION).show();
-           }
-           else
-               Utils.getBox("CAN NOT CREATE FLIGHT!!!", Alert.AlertType.ERROR).show();
-           
-           conn.close();
+                Flight fl = new Flight();
+                fl.setId(Integer.parseInt(id.getText()));
+                fl.setPlaneId(Integer.parseInt(cbPlane.getValue().toString()));
+                fl.setOrigin(cbOrigin.getValue().toString());
+                fl.setDestination(cbDestination.getValue().toString());
+                fl.setDay(date.getValue().toString());
+                fl.setTime(time.getText());
+
+                if(f.addFilght(fl)) {
+                    double price = 0;
+                    switch(fl.getPlaneId()){
+                         case 1:
+                             price = fl.unitPrice() * 1.5;
+                             break;
+                         case 2:
+                             price = fl.unitPrice() * 1.2;
+                             break;
+                         case 3:
+                             price = fl.unitPrice() * 2.0;
+                             break;
+                     default:
+                    }  
+                    List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
+                    for(int i = 0; i < seats.size(); i++){
+                        Seat seat = seats.get(i);
+                        t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
+                    }
+                    if(s.setNull(fl.getPlaneId()))
+                         Utils.getBox("YOU HAVE JUST SUCCESSFULLY CREATED A FLIGHT!!!", Alert.AlertType.INFORMATION).show();
+                }
+                else
+                    Utils.getBox("CAN NOT CREATE FLIGHT!!!", Alert.AlertType.ERROR).show();
+
+                conn.close();
            }
        } catch (SQLException ex) {
            Logger.getLogger(AddFilghtController.class.getName()).log(Level.SEVERE, null, ex);
