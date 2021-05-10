@@ -111,7 +111,7 @@ public class ConfirmController implements Initializable {
                                 }
                                 else{
                                     try {
-                                        Utils.getBox("SUCCESFUL TICKRT BOOKING!!!", Alert.AlertType.INFORMATION).show();
+                                        Utils.getBox("SUCCESFUL TICKET BOOKING!!!", Alert.AlertType.INFORMATION).show();
                                         App.setRoot("home");
                                     
                                 } catch (IOException ex) {
