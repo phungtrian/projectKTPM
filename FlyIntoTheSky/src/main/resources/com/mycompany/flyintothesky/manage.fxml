@@ -13,52 +13,58 @@
    <children>
       <HBox prefHeight="93.0" prefWidth="600.0">
          <children>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#switchToHome" prefHeight="110.0" prefWidth="119.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
+            <Button fx:id="back" mnemonicParsing="false" onAction="#switchToHome" prefHeight="83.0" prefWidth="93.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" prefHeight="90.0" prefWidth="650.0" text="Manage" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="90.0" prefWidth="353.0" text="Manage" textFill="#2d3b99">
                <font>
                   <Font name="System Bold" size="49.0" />
                </font>
                <HBox.margin>
-                  <Insets right="30.0" />
+                  <Insets left="30.0" right="30.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
       <HBox prefHeight="242.0" prefWidth="600.0">
          <children>
-            <Button fx:id="add" contentDisplay="TOP" graphicTextGap="36.0" mnemonicParsing="false" onAction="#switchToAddFlight" prefHeight="242.0" prefWidth="194.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
+            <Button fx:id="add" contentDisplay="TOP" graphicTextGap="36.0" mnemonicParsing="false" onAction="#switchToAddFlight" prefHeight="242.0" prefWidth="191.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="117.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="118.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/addFlight.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button fx:id="fix" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToFixFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix &amp; delete" textFill="#2d3b99">
+               </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button fx:id="fix" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" onAction="#switchToFixFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix &amp; delete" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="136.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="124.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/fix.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
             </Button>
-            <Button fx:id="confirm" contentDisplay="TOP" graphicTextGap="20.0" mnemonicParsing="false" onAction="#switchToConfirmPayment" prefHeight="242.0" prefWidth="302.0" style="-fx-background-color: lightblue;" text="Payment confirmation" textAlignment="CENTER" textFill="#2d3b99" wrapText="true">
+            <Button fx:id="confirm" contentDisplay="TOP" graphicTextGap="20.0" mnemonicParsing="false" onAction="#switchToConfirmPayment" prefHeight="242.0" prefWidth="267.0" style="-fx-background-color: lightblue;" text="Payment confirmation" textAlignment="CENTER" textFill="#2d3b99" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="108.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="88.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/confirm_wallet.png" />
                      </image>
@@ -67,6 +73,9 @@
                <padding>
                   <Insets top="25.0" />
                </padding>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
             </Button>
          </children></HBox>
    </children>

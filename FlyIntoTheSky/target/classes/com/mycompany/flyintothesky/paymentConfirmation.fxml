@@ -49,7 +49,7 @@
       </HBox>
       <HBox prefHeight="177.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btConfirm" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirm" prefHeight="49.0" prefWidth="158.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
+            <Button fx:id="btConfirm" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirm" prefHeight="61.0" prefWidth="158.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
