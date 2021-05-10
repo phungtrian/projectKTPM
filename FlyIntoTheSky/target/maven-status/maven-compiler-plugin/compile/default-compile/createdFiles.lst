@@ -1,3 +1,4 @@
+com\mycompany\services\PassWordValidation.class
 com\mycompany\flyintothesky\HomeController.class
 com\mycompany\flyintothesky\ConfirmController.class
 com\mycompany\flyintothesky\TicketController.class
@@ -7,9 +8,11 @@ com\mycompany\pojo\Plane.class
 com\mycompany\flyintothesky\TicketDetailsController.class
 com\mycompany\flyintothesky\Utils.class
 com\mycompany\services\PlaneService.class
+com\mycompany\services\PassWordValidation$PasswordValidator.class
 com\mycompany\pojo\Ticket.class
 com\mycompany\flyintothesky\LoginController.class
 com\mycompany\services\SeatService.class
+com\mycompany\services\UserValidation.class
 com\mycompany\services\CustomerService.class
 com\mycompany\flyintothesky\PaymentController.class
 com\mycompany\services\FlightService.class

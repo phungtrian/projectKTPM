@@ -35,7 +35,7 @@ public class LoginController{
         UserValidation uservalid = new UserValidation(conn);
         PassWordValidation passvalid = new PassWordValidation(conn);
         
-        if(user.getText().trim().equals("admin")&& pass.getText().equals("12345678"))
+        if(user.getText().equals("admin")&& pass.getText().equals("12345678"))
         {
             App.setRoot("manage");
         }
