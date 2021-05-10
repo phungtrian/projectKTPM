@@ -134,7 +134,6 @@ public class BookingController implements Initializable {
     private void switchToTicket(ActionEvent event) throws IOException {
         App.setRoot("ticket");
     }
-
 }
 //        TableColumn colCancel = new TableColumn();
 //        colCancel.setCellFactory((obj) -> {

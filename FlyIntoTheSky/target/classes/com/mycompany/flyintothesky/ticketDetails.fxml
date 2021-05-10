@@ -11,6 +11,11 @@
    <children>
       <HBox prefHeight="66.0" prefWidth="600.0">
          <children>
+            <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToBooking" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2b3d99">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
             <Label alignment="CENTER" prefHeight="84.0" prefWidth="600.0" text="Ticket Details" textFill="#2d3b99">
                <font>
                   <Font name="System Bold" size="49.0" />

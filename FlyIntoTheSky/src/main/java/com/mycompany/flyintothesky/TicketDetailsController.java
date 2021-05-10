@@ -93,6 +93,12 @@ public class TicketDetailsController implements Initializable{
     }
     
     @FXML
+    private void switchToBooking() throws IOException{
+        App.setRoot("booking");
+    }
+    
+    
+    @FXML
     private void cancel() throws IOException{
         try {
             Connection conn = JdbcUtils.getConn();
