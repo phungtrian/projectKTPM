@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,52 +11,63 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.ManageController">
    <children>
-      <Label alignment="CENTER" prefHeight="90.0" prefWidth="600.0" text="Manage" textFill="#2d3b99">
-         <font>
-            <Font name="System Bold" size="49.0" />
-         </font></Label>
+      <HBox prefHeight="93.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#switchToHome" prefHeight="110.0" prefWidth="119.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" prefHeight="90.0" prefWidth="650.0" text="Manage" textFill="#2d3b99">
+               <font>
+                  <Font name="System Bold" size="49.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
       <HBox prefHeight="242.0" prefWidth="600.0">
          <children>
-            <Button fx:id="add" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToAddFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
+            <Button fx:id="add" contentDisplay="TOP" graphicTextGap="36.0" mnemonicParsing="false" onAction="#switchToAddFlight" prefHeight="242.0" prefWidth="194.0" style="-fx-background-color: lightblue;" text="Add a flight" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="190.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/IMG-2671.jpg" />
+                        <Image url="@../../../images/addFlight.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="fix" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToFixFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix a flight" textFill="#2d3b99">
+            <Button fx:id="fix" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToFixFlight" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Fix &amp; delete" textFill="#2d3b99">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="190.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="136.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/IMG-2670.jpg" />
+                        <Image url="@../../../images/fix.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="242.0" prefWidth="270.0" style="-fx-background-color: lightblue;" text="Delete" textFill="#2d3b99">
+            <Button contentDisplay="TOP" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="242.0" prefWidth="302.0" style="-fx-background-color: lightblue;" text="Payment confirmation" textAlignment="CENTER" textFill="#2d3b99" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="190.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="108.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/IMG-2672.jpg" />
+                        <Image url="@../../../images/confirm_wallet.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <padding>
+                  <Insets top="25.0" />
+               </padding>
             </Button>
          </children></HBox>
-      <Button fx:id="back" mnemonicParsing="false" onAction="#switchToHome" prefHeight="59.0" prefWidth="74.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Button>
    </children>
 </VBox>

@@ -132,10 +132,8 @@ public class FlightService {
             LocalDate localDate = LocalDate.parse(rs.getString("day"),
             DateTimeFormatter.ISO_LOCAL_DATE);
             LocalDate toDay = LocalDate.now();
-            if(localDate.isBefore(toDay)){
-                rs.next();
-            }
-            else{
+            if(localDate.isBefore(toDay) == false){
+            
                 Flight f = new Flight();
                 f.setId(rs.getInt("id"));
                 f.setOrigin(rs.getString("origin"));

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.flyintothesky.PaymentConfirmationController">
+   <children>
+      <HBox prefHeight="154.0" prefWidth="600.0" stylesheets="@../../../styles/style.css">
+         <children>
+            <Button fx:id="btBack" mnemonicParsing="false" onAction="#switchToManage" prefHeight="96.0" prefWidth="72.0" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" prefHeight="98.0" prefWidth="518.0" text="Payment confirmation" textFill="#2d3b99">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="58.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="55.0" prefWidth="258.0" text="Ticket  ID" textFill="#2d3b99">
+               <font>
+                  <Font size="37.0" />
+               </font>
+               <padding>
+                  <Insets left="19.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="ticketId" prefHeight="49.0" prefWidth="218.0" style="-fx-background-radius: 10;">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="177.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btConfirm" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirm" prefHeight="49.0" prefWidth="158.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="222.0" top="60.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

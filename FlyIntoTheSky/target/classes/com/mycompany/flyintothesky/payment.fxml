@@ -13,14 +13,6 @@
    <children>
       <HBox prefHeight="79.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="492.0" text="Payment" textFill="#2d3b99">
-               <font>
-                  <Font name="System Bold" size="53.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Label>
             <Button fx:id="btHome" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHome" prefHeight="69.0" prefWidth="60.0" style="-fx-background-color: lightblue;">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
@@ -30,11 +22,19 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label alignment="CENTER" prefHeight="79.0" prefWidth="378.0" text="Payment" textFill="#2d3b99">
+               <font>
+                  <Font name="System Bold" size="53.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" prefHeight="35.0" prefWidth="590.0" text="Dùng MoMo scan mã QR sau để chuyển tiền" textFill="#2d3b99">
+      <Label alignment="CENTER" prefHeight="35.0" prefWidth="590.0" text="Use MoMo scan this QR code to payment" textFill="#2d3b99">
          <font>
-            <Font size="29.0" />
+            <Font size="26.0" />
          </font>
       </Label>
       <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -45,9 +45,9 @@
             <Insets left="200.0" top="10.0" />
          </VBox.margin>
       </ImageView>
-      <Label prefHeight="63.0" prefWidth="593.0" text="Lưu ý: Quý khách vui lòng nhập đúng số tiền và ghi chú mã vé(hông ghi mất tiền gáng chịu hjhj)." textFill="#2d3b99">
+      <Label prefHeight="63.0" prefWidth="593.0" text="P/s: Please enter the correct amount and note the ticket id into description." textFill="#2d3b99">
          <font>
-            <Font size="15.0" />
+            <Font size="19.0" />
          </font>
          <VBox.margin>
             <Insets left="7.0" />

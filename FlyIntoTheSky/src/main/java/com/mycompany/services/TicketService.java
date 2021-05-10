@@ -36,7 +36,7 @@ public class TicketService {
 
         ResultSet rs = stm.executeQuery();
 
-        while(rs.next()){
+        if(rs.next()){
             t.setId(rs.getInt("id"));
             t.setPrice(rs.getBigDecimal("price"));
             t.setCustomerID(rs.getInt("customer_id"));
@@ -44,8 +44,10 @@ public class TicketService {
             t.setSeatID(rs.getInt("seat_id"));
             t.setStatus(rs.getString("status"));
             t.setDateOfIssue(rs.getString("date_of_issue"));
+            return t;
         }
-        return t;
+        else
+            return null;
     }
 
     public int getCusId(int ticketId){

@@ -13,14 +13,6 @@
    <children>
       <HBox prefHeight="79.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="492.0" text="Payment" textFill="#2d3b99">
-               <font>
-                  <Font name="System Bold" size="53.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Label>
             <Button fx:id="btHome" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHome" prefHeight="69.0" prefWidth="60.0" style="-fx-background-color: lightblue;">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
@@ -30,6 +22,14 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label alignment="CENTER" prefHeight="79.0" prefWidth="378.0" text="Payment" textFill="#2d3b99">
+               <font>
+                  <Font name="System Bold" size="53.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <Label alignment="CENTER" prefHeight="35.0" prefWidth="590.0" text="Use MoMo scan this QR code to payment" textFill="#2d3b99">
