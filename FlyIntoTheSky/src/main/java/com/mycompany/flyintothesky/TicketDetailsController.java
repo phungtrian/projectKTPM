@@ -86,41 +86,10 @@ public class TicketDetailsController implements Initializable{
             Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);        
             }
     }    
+    
     @FXML
-    private void confirm(){
-        try {
-            Connection conn = JdbcUtils.getConn();
-            TicketService t = new TicketService(conn);
-            CustomerService c = new CustomerService(conn);
-            
-            BookingController book = new BookingController();
-            LocalDate toDay = LocalDate.now();
-            
-            if( t.addDateIssue(book.T2.getId(), toDay.toString())){
-                
-                if(t.changeStatus(book.T2.getId(), "Booked")){
-                    
-                    Utils.getBox("Do you want to pay?", Alert.AlertType.CONFIRMATION)
-                            .showAndWait().ifPresent(bt -> {
-                                if (bt == ButtonType.OK) {
-                                    try {
-                                        App.setRoot("payment");
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                }
-                                else
-                                    try {
-                                        App.setRoot("home");
-                                } catch (IOException ex) {
-                                    Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            });
-                }
-            }   } catch (SQLException ex) {
-            Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+    private void switchToPayment() throws IOException{
+        App.setRoot("payment");
     }
     
     @FXML
@@ -131,8 +100,21 @@ public class TicketDetailsController implements Initializable{
             
             BookingController book = new BookingController();
             
-            if(t.changeStatus(book.T2.getId(), "Null"))
-                App.setRoot("home");
+//            if(t.changeStatus(book.T2.getId(), "Null"))
+                Utils.getBox("ARE YOU SURE TO CANCEL THE TICKET", Alert.AlertType.CONFIRMATION)
+                        .showAndWait().ifPresent(bt -> {if (bt == ButtonType.OK)
+                                                            try {
+                                                                if(t.changeStatus(book.T2.getId(), "Null"))
+                                                                    App.setRoot("home");
+                        } catch (IOException ex) {
+                            Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                                                        else if (bt == ButtonType.NO)
+                                                            try {
+                                                                App.setRoot("ticketDetails");
+                        } catch (IOException ex) {
+                            Logger.getLogger(TicketDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+                        }});
                 
             conn.close();
         } catch (SQLException ex) {

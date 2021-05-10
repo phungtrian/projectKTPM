@@ -11,7 +11,7 @@
    <children>
       <HBox prefHeight="66.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="84.0" prefWidth="600.0" text="Confirm" textFill="#2d3b99">
+            <Label alignment="CENTER" prefHeight="84.0" prefWidth="600.0" text="Ticket Details" textFill="#2d3b99">
                <font>
                   <Font name="System Bold" size="49.0" />
                </font>
@@ -132,7 +132,7 @@
                   <Insets left="320.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Confirm" textFill="WHITE">
+            <Button fx:id="confirm" mnemonicParsing="false" onAction="#switchToPayment" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Payment" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
