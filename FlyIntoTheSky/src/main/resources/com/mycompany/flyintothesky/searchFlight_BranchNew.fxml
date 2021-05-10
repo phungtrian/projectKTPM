@@ -51,7 +51,7 @@
       </Label>
       <ComboBox fx:id="cbNoidi" prefHeight="27.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <ComboBox fx:id="cbNoiden" prefHeight="29.0" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <DatePicker fx:id="date" onAction="#seletedDate" prefHeight="29.0" prefWidth="218.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <DatePicker fx:id="date" editable="false" onAction="#seletedDate" prefHeight="29.0" prefWidth="218.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <TableView fx:id="tbFlights" prefHeight="190.0" prefWidth="435.0" style="-fx-background-color: lightblue; -fx-border-color: #2d3b99;" GridPane.columnSpan="2" GridPane.rowIndex="5" />
       <Button fx:id="btBack" mnemonicParsing="false" onAction="#switchToTicket" prefHeight="54.0" prefWidth="73.0" style="-fx-background-color: lightbule;" text="&lt;" textFill="#2d3b99">
          <font>
