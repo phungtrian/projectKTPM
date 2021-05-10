@@ -100,12 +100,15 @@ public class AddFilghtController implements Initializable {
            TicketService t = new TicketService(conn);
            SeatService s = new SeatService(conn);
            
-           if(id.getText() == null || cbPlane.getValue() == null || cbOrigin.getValue() == null|| cbDestination.getValue() == null
-                   || date.getValue() == null || time.getText() == null)
+           if(id.getText() == "" || cbPlane.getValue() == null || cbOrigin.getValue() == null|| cbDestination.getValue() == null
+                   || date.getValue() == null || time.getText() == "")
                Utils.getBox("PLEASE ENTER ALL INFORMATION!!!", Alert.AlertType.ERROR).show();
            else if( f.getFlightById(Integer.parseInt(id.getText())) != null){
                Utils.getBox("FLIGHT ID HAVE ALREADY EXISTED!!! ", Alert.AlertType.ERROR).show();
            }
+           else if(cbOrigin.getValue().toString().equals(cbDestination.getValue().toString())){
+                    Utils.getBox("THE SAME LOCATION!!!", Alert.AlertType.ERROR).show();
+                }
            else { 
            
                 Flight fl = new Flight();
@@ -117,30 +120,29 @@ public class AddFilghtController implements Initializable {
                 fl.setTime(time.getText());
 
                 if(f.addFilght(fl)) {
-                    double price = 0;
-                    switch(fl.getPlaneId()){
-                         case 1:
-                             price = fl.unitPrice() * 1.5;
-                             break;
-                         case 2:
-                             price = fl.unitPrice() * 1.2;
-                             break;
-                         case 3:
-                             price = fl.unitPrice() * 2.0;
-                             break;
-                     default:
-                    }  
-                    List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
-                    for(int i = 0; i < seats.size(); i++){
-                        Seat seat = seats.get(i);
-                        t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
-                    }
-                    if(s.setNull(fl.getPlaneId()))
-                         Utils.getBox("YOU HAVE JUST SUCCESSFULLY CREATED A FLIGHT!!!", Alert.AlertType.INFORMATION).show();
+                double price = 0;
+                switch(fl.getPlaneId()){
+                     case 1:
+                         price = fl.unitPrice() * 1.5;
+                         break;
+                     case 2:
+                         price = fl.unitPrice() * 1.2;
+                         break;
+                     case 3:
+                         price = fl.unitPrice() * 2.0;
+                         break;
+                 default:
+                }  
+                List<Seat> seats = s.getSeatsByPlaneID(fl.getPlaneId());
+                for(int i = 0; i < seats.size(); i++){
+                    Seat seat = seats.get(i);
+                    t.addTicket(fl.getId(), seat.getId(), BigDecimal.valueOf(price));
+                }
+                if(s.setNull(fl.getPlaneId()))
+                     Utils.getBox("YOU HAVE JUST SUCCESSFULLY CREATED A FLIGHT!!!", Alert.AlertType.INFORMATION).show();
                 }
                 else
                     Utils.getBox("CAN NOT CREATE FLIGHT!!!", Alert.AlertType.ERROR).show();
-
                 conn.close();
            }
        } catch (SQLException ex) {

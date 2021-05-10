@@ -6,7 +6,6 @@
 package com.mycompany.flyintothesky;
 
 import com.mycompany.pojo.Customer;
-import com.mycompany.services.CheckAllTheSituations;
 import com.mycompany.services.CustomerService;
 import com.mycompany.services.JdbcUtils;
 import com.mycompany.services.NameValidation;
