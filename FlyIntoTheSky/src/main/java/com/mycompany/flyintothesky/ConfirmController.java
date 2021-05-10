@@ -109,11 +109,14 @@ public class ConfirmController implements Initializable {
                                         Logger.getLogger(ConfirmController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                 }
-                                else
+                                else{
                                     try {
+                                        Utils.getBox("SUCCESFUL TICKRT BOOKING!!!", Alert.AlertType.INFORMATION).show();
                                         App.setRoot("home");
+                                    
                                 } catch (IOException ex) {
                                     Logger.getLogger(ConfirmController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                                 }
                             });
                 }
