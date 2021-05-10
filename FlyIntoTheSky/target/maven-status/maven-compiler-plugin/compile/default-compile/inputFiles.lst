@@ -3,6 +3,7 @@ C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\ja
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\LoginController.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\services\PlaneService.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\services\AirportService.java
+C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\TicketDetailsController.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\ConfirmController.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\FlightsController.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\SearchController.java
@@ -13,7 +14,6 @@ C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\ja
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\TicketController.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\pojo\Seat.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\flyintothesky\AddFilghtController.java
-C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\pojo\Agent.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\pojo\Airport.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\pojo\Plane.java
 C:\Users\LENOVO\OneDrive\Documents\BT_CNPM\projectKTPM\FlyIntoTheSky\src\main\java\com\mycompany\services\TicketService.java

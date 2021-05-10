@@ -4,6 +4,7 @@ com\mycompany\flyintothesky\TicketController.class
 com\mycompany\pojo\Seat.class
 com\mycompany\services\JdbcUtils.class
 com\mycompany\pojo\Plane.class
+com\mycompany\flyintothesky\TicketDetailsController.class
 com\mycompany\flyintothesky\Utils.class
 com\mycompany\services\PlaneService.class
 com\mycompany\pojo\Ticket.class
@@ -13,6 +14,8 @@ com\mycompany\services\CustomerService.class
 com\mycompany\flyintothesky\PaymentController.class
 com\mycompany\services\FlightService.class
 com\mycompany\flyintothesky\ManageController.class
+com\mycompany\flyintothesky\BookingController.class
+com\mycompany\flyintothesky\AddInfoController.class
 com\mycompany\flyintothesky\SearchController.class
 com\mycompany\pojo\Customer.class
 com\mycompany\pojo\Flight.class
@@ -24,3 +27,4 @@ com\mycompany\flight\FlightsController.class
 com\mycompany\flyintothesky\App.class
 com\mycompany\services\FixflightService.class
 com\mycompany\flyintothesky\AddFilghtController.class
+com\mycompany\services\TicketService.class

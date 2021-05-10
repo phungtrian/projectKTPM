@@ -26,7 +26,7 @@
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.0" prefWidth="600.0" text="Login" textFill="#2d3b99" GridPane.columnSpan="4">
          <font>
-            <Font name="Calibri Bold" size="38.0" />
+            <Font name="Calibri Bold" size="52.0" />
          </font>
       </Label>
       <Label alignment="CENTER" prefHeight="86.0" prefWidth="252.0" text="Username" textFill="#2d3b99" GridPane.rowIndex="1">
@@ -58,7 +58,7 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToHome" prefHeight="22.0" prefWidth="39.0" scaleShape="false" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99" GridPane.rowIndex="3">
+      <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToHome" prefHeight="22.0" prefWidth="39.0" scaleShape="false" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
          <font>
             <Font size="37.0" />
          </font>
