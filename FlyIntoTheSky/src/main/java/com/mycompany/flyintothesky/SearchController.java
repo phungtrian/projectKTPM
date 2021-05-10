@@ -48,6 +48,7 @@ public class SearchController implements Initializable{
     
     @FXML
     private void seletedDate(ActionEvent event){
+        
         LocalDate toDay = LocalDate.now();
         LocalDate input = date.getValue();
         if(input.isBefore(toDay)){
@@ -58,7 +59,10 @@ public class SearchController implements Initializable{
     
     @FXML
     private void searchFlight(ActionEvent event) {
-        if(cbNoidi.getValue() == null){
+        if(cbNoidi.getValue() == null && cbNoiden.getValue() == null && date.getValue() == null){
+            Utils.getBox("PLEASE ENTER THE FLIGHT INFORMATION WHICH YOU WANT TO SEARCH!!!", Alert.AlertType.WARNING).show();
+        }
+        else if(cbNoidi.getValue() == null){
             if(cbNoiden.getValue() == null)
                 loadData(null, null, date.getValue().toString());
             else if(date.getValue() == null)
@@ -72,10 +76,9 @@ public class SearchController implements Initializable{
             else
                 loadData(cbNoidi.getValue().toString(), null, date.getValue().toString());
         }
-        else if(date.getValue() == null)
+        else if(date.getValue() == null){
             loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), null);
-        else if(cbNoidi.getValue() == null && cbNoiden.getValue() == null && date.getValue() == null)
-            Utils.getBox("PLEASE ENTER THE FLIGHT INFORMATION WHICH YOU WANT TO SEARCH!!!", Alert.AlertType.WARNING).show();
+        }
         else
             loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), date.getValue().toString());
 

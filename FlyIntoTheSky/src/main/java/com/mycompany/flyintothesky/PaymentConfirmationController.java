@@ -53,11 +53,13 @@ public class PaymentConfirmationController implements Initializable {
         TicketService t = new TicketService(conn);
         
         if(t.getTicketByID(Integer.parseInt(ticketId.getText())) != null){
-            Utils.getBox("Xác nhận thanh toán?", Alert.AlertType.CONFIRMATION).showAndWait().ifPresent(bt ->{
+            Utils.getBox("CONFIRM PAYMENT?", Alert.AlertType.CONFIRMATION).showAndWait().ifPresent(bt ->{
                 if(bt == ButtonType.OK){
                     if(t.changeStatus(Integer.parseInt(ticketId.getText()), "Paid")){
-                        Utils.getBox("Thanh toán thành công!!", Alert.AlertType.INFORMATION).show();
+                        Utils.getBox("SUCCESSFUL PAYMENT!!", Alert.AlertType.INFORMATION).show();
                     }
+                    else 
+                        Utils.getBox("PAYMENT FAILED!!!", Alert.AlertType.ERROR).show();
                 }
             });
         }

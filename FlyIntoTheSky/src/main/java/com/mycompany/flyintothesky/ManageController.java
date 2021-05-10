@@ -18,7 +18,7 @@ public class ManageController {
   @FXML
    private Button fix;
   @FXML
-   private Button delete;
+   private Button confirm;
   @FXML
    private Button back;
     
@@ -35,5 +35,9 @@ public class ManageController {
     @FXML
     private void switchToFixFlight() throws IOException{
         App.setRoot("fixFlight");
+    }
+    @FXML
+    private void switchToConfirmPayment() throws IOException{
+        App.setRoot("paymentConfirmation");
     }
 }
