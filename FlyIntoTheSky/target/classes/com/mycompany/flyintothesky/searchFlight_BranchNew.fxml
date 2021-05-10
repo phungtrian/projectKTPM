@@ -25,9 +25,9 @@
       <RowConstraints maxHeight="198.33332316080728" minHeight="10.0" prefHeight="163.99998779296874" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" prefHeight="50.0" prefWidth="280.0" text="Search flight" textFill="#2d3b99" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label alignment="CENTER" prefHeight="38.0" prefWidth="304.0" text="Search flight" textFill="#2d3b99" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font name="System Bold" size="39.0" />
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
       <Button fx:id="btSearch" mnemonicParsing="false" onAction="#searchFlight" prefHeight="36.0" prefWidth="302.0" style="-fx-background-color: #2d3b99;" text="Search" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">

@@ -2,7 +2,9 @@ com\mycompany\flyintothesky\HomeController.class
 com\mycompany\flyintothesky\ConfirmController.class
 com\mycompany\flyintothesky\TicketController.class
 com\mycompany\pojo\Seat.class
+com\mycompany\services\CheckAllTheSituations$PhoneValidator.class
 com\mycompany\services\JdbcUtils.class
+com\mycompany\services\CheckAllTheSituations$NameValidator.class
 com\mycompany\pojo\Plane.class
 com\mycompany\flyintothesky\TicketDetailsController.class
 com\mycompany\flyintothesky\Utils.class
@@ -26,5 +28,7 @@ module-info.class
 com\mycompany\flight\FlightsController.class
 com\mycompany\flyintothesky\App.class
 com\mycompany\services\FixflightService.class
+com\mycompany\services\CheckAllTheSituations.class
 com\mycompany\flyintothesky\AddFilghtController.class
+com\mycompany\flyintothesky\PaymentConfirmationController.class
 com\mycompany\services\TicketService.class

@@ -64,7 +64,7 @@ public class SearchController implements Initializable{
             else if(date.getValue() == null)
                 loadData(null, cbNoiden.getValue().toString(), null);
             else
-                loadData(cbNoidi.getValue().toString(), cbNoiden.getValue().toString(), null);
+                loadData(null, cbNoiden.getValue().toString(), date.getValue().toString());
         }
         else if(cbNoiden.getValue() == null){
             if( date.getValue() == null)

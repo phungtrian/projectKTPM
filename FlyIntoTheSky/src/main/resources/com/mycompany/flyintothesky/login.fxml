@@ -53,10 +53,13 @@
       </Label>
       <PasswordField fx:id="pass" prefHeight="32.0" prefWidth="219.0" style="-fx-background-radius: 7;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
       <TextField fx:id="user" prefHeight="31.0" prefWidth="219.0" style="-fx-background-radius: 7;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-      <Button fx:id="login" defaultButton="true" mnemonicParsing="false" onAction="#switchToManage" prefHeight="38.0" prefWidth="146.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Login" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button fx:id="login" defaultButton="true" mnemonicParsing="false" onAction="#switchToManage" prefHeight="43.0" prefWidth="160.0" style="-fx-background-color: #2d3b99; -fx-background-radius: 7;" text="Login" textFill="WHITE" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
          <font>
             <Font size="23.0" />
          </font>
+         <GridPane.margin>
+            <Insets bottom="30.0" />
+         </GridPane.margin>
       </Button>
       <Button fx:id="goBack" mnemonicParsing="false" onAction="#switchToHome" prefHeight="22.0" prefWidth="39.0" scaleShape="false" style="-fx-background-color: lightblue;" text="&lt;" textFill="#2d3b99">
          <font>
